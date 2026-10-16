@@ -7,7 +7,7 @@ on:
 permissions:
   contents: write
   # Trusted publishing: npm checks this workflow's OIDC token, so no npm
-  # token is stored in the repository.
+  # token needs to be stored in the repository (after the first release).
   id-token: write
 
 jobs:
@@ -38,9 +38,15 @@ jobs:
         with:
           node-version: "24"
           registry-url: "https://registry.npmjs.org"
+      # npm only lets a package set up trusted publishing once it exists, so
+      # the first release uses an NPM_TOKEN repository secret. Delete the
+      # secret after configuring trusted publishing; npm then uses the OIDC
+      # token above.
       - name: Publish to npm
         run: npm publish --access public --provenance
         working-directory: packages/nodefit
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
       - name: Package the VS Code extension
         run: bun run package
