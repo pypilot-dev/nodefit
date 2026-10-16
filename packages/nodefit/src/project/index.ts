@@ -1,14 +1,29 @@
 /**
  * What a project declares, locks and pins, and which Node this machine runs.
- *
- * OWNER: the project work package. This file fixes the exported API.
  */
 
-import type { NodeEnvironment, NodePin, ProjectInfo } from "../types";
+import { resolve } from "node:path";
+import type { NodeEnvironment, NodePin, PackageManager, ProjectInfo } from "../types";
+import { directDependencies, expandWorkspaces, readManifest, workspacePatterns } from "./manifest";
+import { readPins } from "./pins";
 
-/** Read package.json, the lockfile and every Node pin under `root`. Throws if there is no package.json. */
-export async function readProject(_root: string): Promise<ProjectInfo> {
-  throw new Error("not implemented");
+/** Read package.json and every Node pin under `root`. Throws if there is no readable package.json. */
+export async function readProject(root: string): Promise<ProjectInfo> {
+  const dir = resolve(root);
+  const manifest = readManifest(dir);
+  const spec = typeof manifest.packageManager === "string" ? manifest.packageManager.trim() : undefined;
+  const declared = spec?.split("@")[0] ?? "";
+  const info: ProjectInfo = {
+    root: dir,
+    dependencies: directDependencies(manifest),
+    locked: [],
+    pins: readPins(dir, manifest),
+    packageManager: ["npm", "bun", "pnpm", "yarn"].includes(declared) ? (declared as PackageManager) : "npm",
+    workspaces: expandWorkspaces(dir, workspacePatterns(dir, manifest)),
+  };
+  if (typeof manifest.name === "string") info.name = manifest.name;
+  if (spec) info.packageManagerSpec = spec;
+  return info;
 }
 
 /** The `node` on PATH, installed version managers and the versions they hold. */
