@@ -1,4 +1,4 @@
-import { type ParseError, parse } from "jsonc-parser";
+import { type ParseError, parse } from "jsonc-parser/lib/esm/main.js";
 import type { DependencyKind, LockedPackage } from "../../types";
 import { enginesObject, isRecord, stringList, stringMap } from "../files";
 import { compact, edgeMap, isRegistryVersion, LockGraph, splitSpec } from "./graph";

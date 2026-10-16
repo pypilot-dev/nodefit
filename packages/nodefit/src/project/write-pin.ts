@@ -1,6 +1,6 @@
 import { readFileSync, writeFileSync } from "node:fs";
 import { dirname, join, resolve } from "node:path";
-import { applyEdits, modify } from "jsonc-parser";
+import { applyEdits, modify } from "jsonc-parser/lib/esm/main.js";
 import type { NodePin, PinSource, ProjectInfo } from "../types";
 import { detectEol } from "./files";
 import { type Located, miseNode, toolVersionsNode } from "./pins";
