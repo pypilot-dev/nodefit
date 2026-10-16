@@ -1,0 +1,21 @@
+{
+  "name": "@swc/core-win32-x64-msvc",
+  "dist-tags": {
+    "latest": "1.16.18"
+  },
+  "versions": {
+    "1.16.18": {
+      "name": "@swc/core-win32-x64-msvc",
+      "version": "1.16.18",
+      "engines": {
+        "node": ">=10"
+      },
+      "os": ["win32"],
+      "cpu": ["x64"],
+      "dist": {
+        "tarball": "https://registry.npmjs.org/@swc/core-win32-x64-msvc/-/core-win32-x64-msvc-1.16.18.tgz",
+        "unpackedSize": 9558326
+      }
+    }
+  }
+}

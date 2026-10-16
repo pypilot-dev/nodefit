@@ -1,0 +1,49 @@
+{
+  "type": "npm",
+  "name": "farmhash",
+  "version": "5.0.1",
+  "files": [
+    {
+      "type": "directory",
+      "name": "build",
+      "files": [
+        {
+          "type": "file",
+          "name": "farmhash-darwin-arm64.node"
+        },
+        {
+          "type": "file",
+          "name": "farmhash-darwin-x64.node"
+        },
+        {
+          "type": "file",
+          "name": "farmhash-linux-arm64.node"
+        },
+        {
+          "type": "file",
+          "name": "farmhash-linux-x64.node"
+        },
+        {
+          "type": "file",
+          "name": "farmhash-linuxmusl-arm64.node"
+        },
+        {
+          "type": "file",
+          "name": "farmhash-linuxmusl-x64.node"
+        },
+        {
+          "type": "file",
+          "name": "farmhash-win32-arm64.node"
+        },
+        {
+          "type": "file",
+          "name": "farmhash-win32-x64.node"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "package.json"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "@img/sharp-libvips-linuxmusl-x64",
+  "version": "1.3.4",
+  "os": ["linux"],
+  "cpu": ["x64"],
+  "libc": ["musl"],
+  "repository": {
+    "url": "git+https://github.com/lovell/sharp-libvips.git",
+    "type": "git",
+    "directory": "npm/linuxmusl-x64"
+  },
+  "config": {
+    "musl": ">=1.2.5"
+  },
+  "dist": {
+    "tarball": "https://registry.npmjs.org/@img/sharp-libvips-linuxmusl-x64/-/sharp-libvips-linuxmusl-x64-1.3.4.tgz",
+    "unpackedSize": 18922966
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "name": "@swc/core-linux-x64-musl",
+  "dist-tags": {
+    "latest": "1.16.18"
+  },
+  "versions": {
+    "1.16.18": {
+      "name": "@swc/core-linux-x64-musl",
+      "version": "1.16.18",
+      "engines": {
+        "node": ">=10"
+      },
+      "os": ["linux"],
+      "cpu": ["x64"],
+      "dist": {
+        "tarball": "https://registry.npmjs.org/@swc/core-linux-x64-musl/-/core-linux-x64-musl-1.16.18.tgz",
+        "unpackedSize": 11811385
+      }
+    }
+  }
+}

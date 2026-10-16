@@ -1,0 +1,22 @@
+{
+  "name": "farmhash",
+  "dist-tags": {
+    "latest": "5.0.1"
+  },
+  "versions": {
+    "5.0.1": {
+      "name": "farmhash",
+      "version": "5.0.1",
+      "engines": {
+        "node": "^18.17.0 || ^20.3.0 || >=21.0.0"
+      },
+      "dependencies": {
+        "detect-libc": "^2.1.1"
+      },
+      "dist": {
+        "tarball": "https://registry.npmjs.org/farmhash/-/farmhash-5.0.1.tgz",
+        "unpackedSize": 854156
+      }
+    }
+  }
+}

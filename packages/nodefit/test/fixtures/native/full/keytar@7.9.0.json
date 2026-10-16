@@ -1,0 +1,26 @@
+{
+  "name": "keytar",
+  "version": "7.9.0",
+  "dependencies": {
+    "node-addon-api": "^4.3.0",
+    "prebuild-install": "^7.0.1"
+  },
+  "scripts": {
+    "install": "prebuild-install || npm run build"
+  },
+  "binary": {
+    "napi_versions": [3]
+  },
+  "repository": {
+    "url": "git+https://github.com/atom/node-keytar.git",
+    "type": "git"
+  },
+  "config": {
+    "target": 3,
+    "runtime": "napi"
+  },
+  "dist": {
+    "tarball": "https://registry.npmjs.org/keytar/-/keytar-7.9.0.tgz",
+    "unpackedSize": 47233
+  }
+}

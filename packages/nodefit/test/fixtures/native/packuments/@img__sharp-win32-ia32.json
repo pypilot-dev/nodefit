@@ -1,0 +1,21 @@
+{
+  "name": "@img/sharp-win32-ia32",
+  "dist-tags": {
+    "latest": "0.35.5"
+  },
+  "versions": {
+    "0.35.5": {
+      "name": "@img/sharp-win32-ia32",
+      "version": "0.35.5",
+      "engines": {
+        "node": "^20.9.0"
+      },
+      "os": ["win32"],
+      "cpu": ["ia32"],
+      "dist": {
+        "tarball": "https://registry.npmjs.org/@img/sharp-win32-ia32/-/sharp-win32-ia32-0.35.5.tgz",
+        "unpackedSize": 19132473
+      }
+    }
+  }
+}

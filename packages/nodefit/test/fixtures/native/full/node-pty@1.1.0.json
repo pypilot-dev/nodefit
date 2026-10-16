@@ -1,0 +1,19 @@
+{
+  "name": "node-pty",
+  "version": "1.1.0",
+  "dependencies": {
+    "node-addon-api": "^7.1.0"
+  },
+  "scripts": {
+    "install": "node scripts/prebuild.js || node-gyp rebuild",
+    "postinstall": "node scripts/post-install.js"
+  },
+  "repository": {
+    "url": "git://github.com/microsoft/node-pty.git",
+    "type": "git"
+  },
+  "dist": {
+    "tarball": "https://registry.npmjs.org/node-pty/-/node-pty-1.1.0.tgz",
+    "unpackedSize": 64363742
+  }
+}
