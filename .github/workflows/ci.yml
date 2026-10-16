@@ -25,7 +25,7 @@ jobs:
       - run: bun run build
 
   node-compat:
-    # Users run `npx nodefit` on whatever Node they have, often the old one
+    # Users run `npx @pypilot-dev/nodefit` on whatever Node they have, often the old one
     # they need help with, so the bundle must start on the oldest supported.
     name: runs on Node ${{ matrix.node }}
     runs-on: ubuntu-latest

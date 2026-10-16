@@ -13,7 +13,7 @@ compiler errors.
 
 | Path | What |
 |---|---|
-| `packages/nodefit/` | the npm package `nodefit`: library, CLI (`nodefit doctor/check/pin/lsp`) and language server |
+| `packages/nodefit/` | the npm package `@pypilot-dev/nodefit` (command `nodefit`): library, CLI (`nodefit doctor/check/pin/lsp`) and language server |
 | `packages/nodefit/src/types.ts` | **the contract between modules**. Change it deliberately, never casually |
 | `packages/nodefit/src/node/` | Node releases (`loadNodeIndex`) and `NodeSet` |
 | `packages/nodefit/src/registry/` | npm registry client (abbreviated packuments, disk cache) and `FixtureRegistry` for tests |
@@ -27,7 +27,7 @@ compiler errors.
 ## Tooling
 
 Bun is the package manager, test runner and bundler. The published package
-runs on **Node >= 18** (users run `npx nodefit` on whatever Node they have),
+runs on **Node >= 18** (users run `npx @pypilot-dev/nodefit` on whatever Node they have),
 so source code must only use Node APIs available in Node 18: no `Bun.*`
 outside build scripts and tests.
 
@@ -47,7 +47,7 @@ bun run build
   checks belong in scripts, not in `bun test`.
 - Library code never prints. The CLI and server present.
 - No runtime `dependencies` in `packages/nodefit`: everything is bundled into
-  `dist/` by `build.ts`, so `npx nodefit` installs one package.
+  `dist/` by `build.ts`, so `npx @pypilot-dev/nodefit` installs one package.
 - Comments explain why, not what. Match the surrounding style.
 - LF line endings.
 

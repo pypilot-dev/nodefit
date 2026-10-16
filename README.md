@@ -14,7 +14,7 @@ It is [PyPilot](https://github.com/pypilot-dev/pypilot)'s approach, applied to
 Node.
 
 ```console
-$ npx nodefit doctor
+$ npx @pypilot-dev/nodefit doctor
 ...
   supported Node   : none
     • sharp 0.35.5      20.9+, 21–26  prebuilt (per-platform packages) · engines >=20.9.0
@@ -31,7 +31,7 @@ $ npx nodefit doctor
 
 | Package | What |
 |---|---|
-| [`packages/nodefit`](packages/nodefit) | The [`nodefit`](https://www.npmjs.com/package/nodefit) npm package: CLI (`doctor`, `check`, `pin`), language server and library. Runs on Node 18+, with no dependencies of its own. |
+| [`packages/nodefit`](packages/nodefit) | The [`@pypilot-dev/nodefit`](https://www.npmjs.com/package/@pypilot-dev/nodefit) npm package: CLI (`doctor`, `check`, `pin`), language server and library. Runs on Node 18+, with no dependencies of its own. |
 | [`packages/vscode`](packages/vscode) | The VS Code extension. It bundles the language server: diagnostics on package.json, a status bar entry, notifications with fixes, and the report. |
 
 Editors other than VS Code can run `nodefit lsp --stdio`; see the

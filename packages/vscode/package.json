@@ -47,13 +47,13 @@
       },
       {
         "command": "nodefit.checkPackage",
-        "title": "Check a Package\u2026",
+        "title": "Check a Package…",
         "category": "nodefit",
         "icon": "$(checklist)"
       },
       {
         "command": "nodefit.pinNode",
-        "title": "Pin Node Version\u2026",
+        "title": "Pin Node Version…",
         "category": "nodefit",
         "icon": "$(pinned)"
       },
@@ -117,12 +117,12 @@
     "e2e": "bun run build && bun e2e/run.ts"
   },
   "devDependencies": {
+    "@pypilot-dev/nodefit": "workspace:*",
     "@types/bun": "1.4.3",
     "@types/node": "20.19.43",
     "@types/vscode": "1.85.0",
     "@vscode/test-electron": "3.1.0",
     "@vscode/vsce": "4.0.0",
-    "nodefit": "workspace:*",
     "typescript": "5.9.3",
     "vscode-languageclient": "9.0.1"
   }

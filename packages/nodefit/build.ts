@@ -1,6 +1,6 @@
 /**
  * Bundles the published package with Bun. Everything, dependencies included,
- * goes into `dist/`, so `npx nodefit` installs nothing else and starts fast.
+ * goes into `dist/`, so `npx @pypilot-dev/nodefit` installs nothing else and starts fast.
  * The output targets Node (>= 18): users run nodefit on the Node they have,
  * which is often the one they need help with.
  *

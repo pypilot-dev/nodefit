@@ -3,8 +3,8 @@
  * `bun test` can cover it without an extension host.
  */
 
-import type { Finding, Fix } from "nodefit";
-import type { StatusParams } from "nodefit/protocol";
+import type { Finding, Fix } from "@pypilot-dev/nodefit";
+import type { StatusParams } from "@pypilot-dev/nodefit/protocol";
 
 export type NotificationMode = "problems-only" | "all" | "off";
 

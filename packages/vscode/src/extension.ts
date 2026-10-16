@@ -10,7 +10,7 @@
 
 import { existsSync } from "node:fs";
 import { join } from "node:path";
-import type { Finding } from "nodefit";
+import type { Finding } from "@pypilot-dev/nodefit";
 import {
   CHECK_REQUEST,
   type CheckParams,
@@ -20,7 +20,7 @@ import {
   type ReportResult,
   STATUS_NOTIFICATION,
   type StatusParams,
-} from "nodefit/protocol";
+} from "@pypilot-dev/nodefit/protocol";
 import * as vscode from "vscode";
 import {
   ExecuteCommandRequest,

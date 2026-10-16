@@ -1,5 +1,5 @@
 {
-  "name": "nodefit",
+  "name": "@pypilot-dev/nodefit",
   "version": "0.1.0",
   "description": "Finds the Node.js version every dependency of a project supports, and catches native modules with no prebuilt binary before node-gyp fails.",
   "license": "AGPL-3.0-or-later",
@@ -54,5 +54,8 @@
     "vscode-languageserver": "9.0.1",
     "vscode-languageserver-textdocument": "1.0.15",
     "yaml": "2.9.1"
+  },
+  "publishConfig": {
+    "access": "public"
   }
 }

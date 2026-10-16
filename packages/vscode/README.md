@@ -68,13 +68,13 @@ like `sharp`'s `@img/*`, bundled prebuilds, `prebuild-install`,
 
 ## The `nodefit` CLI
 
-The extension runs the same engine as the [`nodefit`](https://www.npmjs.com/package/nodefit)
+The extension runs the same engine as the [`@pypilot-dev/nodefit`](https://www.npmjs.com/package/@pypilot-dev/nodefit)
 npm package. Outside VS Code, or in CI:
 
 ```bash
-npx nodefit doctor              # the same report, in the terminal
-npx nodefit check sharp         # one package
-npx nodefit pin                 # pin the recommended Node
+npx @pypilot-dev/nodefit doctor              # the same report, in the terminal
+npx @pypilot-dev/nodefit check sharp         # one package
+npx @pypilot-dev/nodefit pin                 # pin the recommended Node
 ```
 
 ## Known limitations

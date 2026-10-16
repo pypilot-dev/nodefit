@@ -3,9 +3,9 @@
   "compilerOptions": {
     "types": ["node", "vscode", "bun"],
     "paths": {
-      "nodefit": ["../nodefit/src/index.ts"],
-      "nodefit/lsp": ["../nodefit/src/lsp.ts"],
-      "nodefit/protocol": ["../nodefit/src/protocol.ts"]
+      "@pypilot-dev/nodefit": ["../nodefit/src/index.ts"],
+      "@pypilot-dev/nodefit/lsp": ["../nodefit/src/lsp.ts"],
+      "@pypilot-dev/nodefit/protocol": ["../nodefit/src/protocol.ts"]
     }
   },
   "include": ["src/**/*", "test/**/*", "e2e/**/*", "build.ts"]

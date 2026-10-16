@@ -1,8 +1,8 @@
 # nodefit
 
-[![npm](https://img.shields.io/npm/v/nodefit?color=blue&logo=npm)](https://www.npmjs.com/package/nodefit)
-[![Node](https://img.shields.io/node/v/nodefit?logo=node.js&logoColor=white)](https://www.npmjs.com/package/nodefit)
-[![License: AGPL-3.0-or-later](https://img.shields.io/npm/l/nodefit?color=blue)](https://github.com/pypilot-dev/nodefit/blob/main/LICENSE)
+[![npm](https://img.shields.io/npm/v/@pypilot-dev/nodefit?color=blue&logo=npm)](https://www.npmjs.com/package/@pypilot-dev/nodefit)
+[![Node](https://img.shields.io/node/v/@pypilot-dev/nodefit?logo=node.js&logoColor=white)](https://www.npmjs.com/package/@pypilot-dev/nodefit)
+[![License: AGPL-3.0-or-later](https://img.shields.io/npm/l/@pypilot-dev/nodefit?color=blue)](https://github.com/pypilot-dev/nodefit/blob/main/LICENSE)
 
 Finds the Node.js version every dependency of a project supports, and
 catches native modules with no prebuilt binary before `npm install` falls
@@ -26,7 +26,7 @@ A project with an old node-sass next to a current sharp, on Node 24:
 ```
 
 ```console
-$ npx nodefit doctor
+$ npx @pypilot-dev/nodefit doctor
 nodefit doctor — C:\work\legacy-app
   platform         : win32-x64
   package manager  : npm (no lockfile)
@@ -58,8 +58,9 @@ nodefit doctor — C:\work\legacy-app
 
 ## Install
 
-Nothing to install: `npx nodefit doctor` runs it. Or add it to a project
-(`npm install --save-dev nodefit`) or globally (`npm install -g nodefit`).
+Nothing to install: `npx @pypilot-dev/nodefit doctor` runs it. Or add it to a project
+(`npm install --save-dev @pypilot-dev/nodefit`) or globally (`npm install -g @pypilot-dev/nodefit`);
+either way the command it installs is `nodefit`.
 It runs on Node 18 and later, with no dependencies of its own.
 
 ## Commands
@@ -119,7 +120,7 @@ answers `nodefit/report` (the doctor report as Markdown) and
 ## Library
 
 ```ts
-import { analyze, formatDoctor, loadInputs } from "nodefit";
+import { analyze, formatDoctor, loadInputs } from "@pypilot-dev/nodefit";
 
 const report = await analyze(await loadInputs(process.cwd()));
 console.log(report.recommended?.version, report.supported.toString());

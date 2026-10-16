@@ -1,6 +1,6 @@
 import { describe, expect, test } from "bun:test";
-import type { Finding } from "nodefit";
-import type { StatusParams } from "nodefit/protocol";
+import type { Finding } from "@pypilot-dev/nodefit";
+import type { StatusParams } from "@pypilot-dev/nodefit/protocol";
 import { fixAction, newProblems, notificationMessage, statusBarView } from "../src/view";
 
 const status = (over: Partial<StatusParams>): StatusParams => ({

@@ -4,7 +4,7 @@
  * process. Everything, the nodefit engine included, ends up in `out/`, so the
  * VSIX ships no node_modules.
  *
- * `nodefit` and `nodefit/lsp` resolve to the engine's TypeScript source
+ * `@pypilot-dev/nodefit` and `@pypilot-dev/nodefit/lsp` resolve to the engine's TypeScript source
  * through the `paths` in tsconfig.json (Bun's bundler honours them before
  * node_modules), so the extension builds without building packages/nodefit
  * first and always carries the engine from the same commit.
