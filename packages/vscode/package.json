@@ -47,13 +47,13 @@
       },
       {
         "command": "nodefit.checkPackage",
-        "title": "Check a Package…",
+        "title": "Check a Package\u2026",
         "category": "nodefit",
         "icon": "$(checklist)"
       },
       {
         "command": "nodefit.pinNode",
-        "title": "Pin Node Version…",
+        "title": "Pin Node Version\u2026",
         "category": "nodefit",
         "icon": "$(pinned)"
       },
@@ -113,12 +113,14 @@
     "typecheck": "tsc --noEmit -p .",
     "build": "bun run build.ts",
     "watch": "bun run build.ts --watch",
-    "package": "bun run build --production && bunx @vscode/vsce package --no-dependencies"
+    "package": "bun run build --production && bunx @vscode/vsce package --no-dependencies",
+    "e2e": "bun run build && bun e2e/run.ts"
   },
   "devDependencies": {
     "@types/bun": "1.4.3",
     "@types/node": "20.19.43",
     "@types/vscode": "1.85.0",
+    "@vscode/test-electron": "3.1.0",
     "@vscode/vsce": "4.0.0",
     "nodefit": "workspace:*",
     "typescript": "5.9.3",

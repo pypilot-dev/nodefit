@@ -4,3 +4,4 @@ out/
 *.vsix
 *.tgz
 .vscode-test/
+out-e2e/

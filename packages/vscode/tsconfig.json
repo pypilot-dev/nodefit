@@ -8,5 +8,5 @@
       "nodefit/protocol": ["../nodefit/src/protocol.ts"]
     }
   },
-  "include": ["src/**/*", "test/**/*", "build.ts"]
+  "include": ["src/**/*", "test/**/*", "e2e/**/*", "build.ts"]
 }
