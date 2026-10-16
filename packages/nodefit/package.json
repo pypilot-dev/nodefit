@@ -1,0 +1,58 @@
+{
+  "name": "nodefit",
+  "version": "0.1.0",
+  "description": "Finds the Node.js version every dependency of a project supports, and catches native modules with no prebuilt binary before node-gyp fails.",
+  "license": "AGPL-3.0-or-later",
+  "author": "Abdullah Masood",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pypilot-dev/nodefit.git",
+    "directory": "packages/nodefit"
+  },
+  "bugs": "https://github.com/pypilot-dev/nodefit/issues",
+  "homepage": "https://github.com/pypilot-dev/nodefit#readme",
+  "keywords": [
+    "node",
+    "engines",
+    "node-gyp",
+    "prebuild",
+    "native",
+    "nvm",
+    "doctor",
+    "compatibility",
+    "language-server"
+  ],
+  "type": "module",
+  "bin": {
+    "nodefit": "dist/cli.js"
+  },
+  "exports": {
+    ".": "./dist/index.js",
+    "./lsp": "./dist/lsp.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "data"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit -p .",
+    "build": "bun run build.ts",
+    "test": "bun test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/bun": "1.4.3",
+    "@types/node": "20.19.43",
+    "@types/semver": "7.8.0",
+    "jsonc-parser": "3.3.1",
+    "semver": "7.8.5",
+    "typescript": "5.9.3",
+    "vscode-languageserver": "9.0.1",
+    "vscode-languageserver-textdocument": "1.0.15",
+    "yaml": "2.9.1"
+  }
+}

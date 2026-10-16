@@ -1,0 +1,17 @@
+{
+  "name": "nodefit-workspace",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "typecheck": "bun run --filter '*' typecheck",
+    "test": "bun test",
+    "lint": "biome check packages",
+    "format": "biome check --write packages",
+    "build": "bun run --filter '*' build"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.5.15"
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "name": "nodefit-vscode",
+  "displayName": "nodefit",
+  "description": "Finds the Node.js version every dependency supports, and flags native modules with no prebuilt binary before node-gyp fails.",
+  "version": "0.1.0",
+  "private": true,
+  "license": "Apache-2.0",
+  "publisher": "AbdullahMasood-005",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pypilot-dev/nodefit",
+    "directory": "packages/vscode"
+  },
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "main": "./out/extension.js",
+  "scripts": {
+    "typecheck": "tsc --noEmit -p .",
+    "build": "bun run build.ts"
+  },
+  "dependencies": {
+    "nodefit": "workspace:*"
+  },
+  "devDependencies": {}
+}

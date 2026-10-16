@@ -1,0 +1,6 @@
+# Pin exact versions for reproducible installs.
+[install]
+exact = true
+
+[test]
+root = "packages"
