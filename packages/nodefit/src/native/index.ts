@@ -18,7 +18,15 @@ import { defaultFetchBytes, type FetchBytes, listPackageFiles } from "./files";
 import { analyzePlatformPackages, platformPackageNames } from "./packages";
 import { compilerNeeds, installsOn } from "./platforms";
 import { readBundledBinaries } from "./prebuilds";
-import { abiCandidates, installArtifactPlan, nodePreGypPlan, prebuildInstallPlan, probe } from "./remote";
+import {
+  abiCandidates,
+  installArtifactPlan,
+  nodePreGypPlan,
+  nodeSassPlan,
+  olderAbiCandidates,
+  prebuildInstallPlan,
+  probe,
+} from "./remote";
 import { classifyScript, installScript, type ScriptMechanism } from "./scripts";
 
 export { listAllows } from "./platforms";
@@ -233,11 +241,16 @@ async function classify(meta: VersionMeta, ctx: NativeContext, fetchBytes: Fetch
     case "node-gyp-build":
     case "check-then-build":
       return bundled(merged, ctx, fetchBytes, mechanism);
-    case "custom":
+    case "custom": {
+      const sass = nodeSassPlan(merged, ctx.platform);
+      if (sass) {
+        return remote(merged, ctx, "prebuild-install", { napi: false, ...sass }, true, `${sass.where}, via node-sass`);
+      }
       // Worth a file listing only when something hints at native code
       // (deasync's build.js); puppeteer's browser download is not.
       if (!merged.gypfile && !hasNativeDependency(merged)) return unknownScript(meta, ctx, mechanism.script);
       return bundled(merged, ctx, fetchBytes, mechanism).catch(() => unknownScript(meta, ctx, mechanism.script));
+    }
     case "compile":
       return sourceOnly(merged, ctx, mechanism.tool);
   }
@@ -385,7 +398,13 @@ async function remote(
   // Node-API builds cost one request per N-API level, so every release is
   // probed; ABI builds cost one per line, so only the lines `engines` allows.
   const candidates = plan.napi ? ctx.index.releases : abiCandidates(ctx.index, meta.engines?.node);
-  const result = await probe(ctx.index, candidates, plan.urlFor, ctx.http);
+  let result = await probe(ctx.index, candidates, plan.urlFor, ctx.http);
+  if (!plan.napi && result.prebuilt.isEmpty()) {
+    const older = await probe(ctx.index, olderAbiCandidates(ctx.index, meta.engines?.node), plan.urlFor, ctx.http);
+    if (!older.prebuilt.isEmpty()) {
+      result = { ...older, missing: [...result.missing, ...older.missing] };
+    }
+  }
   const label = platformLabel(ctx.platform);
   const evidence = [...result.found, ...result.missing.map((u) => `missing: ${u}`)];
   const prebuilt: NodeVersionSet = result.prebuilt;

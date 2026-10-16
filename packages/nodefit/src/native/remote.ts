@@ -31,6 +31,18 @@ export function abiCandidates(index: NodeIndex, engines: string | undefined): No
   return allowed.releases().filter((r) => r.major > newest - ABI_LINES_PROBED);
 }
 
+/**
+ * The older lines `abiCandidates` leaves out, back to Node 8. Probed only when
+ * the recent lines have nothing: a legacy package (node-sass 4) has binaries
+ * for old Node alone, and "works up to Node 14" is the useful answer there.
+ */
+export function olderAbiCandidates(index: NodeIndex, engines: string | undefined): NodeRelease[] {
+  const newest = index.releases[0]?.major ?? 0;
+  let allowed = engines ? NodeSet.fromRange(index, engines) : NodeSet.all(index);
+  if (allowed.isEmpty()) allowed = NodeSet.all(index);
+  return allowed.releases().filter((r) => r.major <= newest - ABI_LINES_PROBED && r.major >= 8);
+}
+
 /** The highest N-API build a release can load, as prebuild-install and node-pre-gyp pick it. */
 export function bestNapiBuild(release: NodeRelease, napiVersions: number[]): number | undefined {
   if (release.napi === undefined) return undefined;
@@ -259,6 +271,29 @@ function safeHost(url: string): string {
   } catch {
     return url;
   }
+}
+
+// --------------------------------------------------------------------------
+// node-sass
+
+/**
+ * node-sass downloads `<platform>-<arch>-<abi>_binding.node` from its
+ * `nodeSassConfig.binarySite` in scripts/install.js, and its postinstall
+ * compiles with node-gyp when that fails. Long deprecated, but still in many
+ * older projects, where it is the classic node-gyp failure on a newer Node.
+ */
+export function nodeSassPlan(meta: VersionMeta, platform: Platform) {
+  const config = (meta as { nodeSassConfig?: { binarySite?: unknown } }).nodeSassConfig;
+  const site = typeof config?.binarySite === "string" ? config.binarySite : undefined;
+  if (meta.name !== "node-sass" && !site) return undefined;
+  const base = (site ?? "https://github.com/sass/node-sass/releases/download").replace(/\/+$/, "");
+  const os = platform.os === "linux" && libcOf(platform) === "musl" ? "linux_musl" : platform.os;
+  return {
+    where: "GitHub release assets",
+    urlFor(r: NodeRelease) {
+      return `${base}/v${meta.version}/${os}-${platform.arch}-${r.abi}_binding.node`;
+    },
+  };
 }
 
 // --------------------------------------------------------------------------
