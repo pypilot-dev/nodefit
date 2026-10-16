@@ -19,8 +19,13 @@
     "typecheck": "tsc --noEmit -p .",
     "build": "bun run build.ts"
   },
-  "dependencies": {
-    "nodefit": "workspace:*"
-  },
-  "devDependencies": {}
+  "devDependencies": {
+    "@types/bun": "1.4.3",
+    "@types/node": "20.19.43",
+    "@types/vscode": "1.85.0",
+    "@vscode/vsce": "4.0.0",
+    "nodefit": "workspace:*",
+    "typescript": "5.9.3",
+    "vscode-languageclient": "9.0.1"
+  }
 }

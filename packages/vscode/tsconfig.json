@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "compilerOptions": {
+    "types": ["node", "vscode", "bun"],
+    "paths": {
+      "nodefit": ["../nodefit/src/index.ts"],
+      "nodefit/lsp": ["../nodefit/src/lsp.ts"],
+      "nodefit/protocol": ["../nodefit/src/protocol.ts"]
+    }
+  },
+  "include": ["src/**/*", "test/**/*", "build.ts"]
+}
