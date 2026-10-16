@@ -142,7 +142,7 @@ function nodeFindings(input: FindingInput, hooks: FindingHooks): Finding[] {
     });
   }
 
-  if (current.eol && current.eol < hooks.today) {
+  if (current.eol && hooks.today >= current.eol) {
     const better = recommended && recommended.major !== current.major;
     out.push({
       id: "eol",
