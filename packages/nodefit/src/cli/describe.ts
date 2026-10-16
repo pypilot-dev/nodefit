@@ -35,31 +35,44 @@ export function packageNotes(p: PackageReport): string[] {
 }
 
 /**
- * The packages worth a line in a report: native modules, and those that
- * leave out part of a maintained Node line. Listing all 800 packages of a
- * lockfile would bury the few that matter.
+ * The packages worth a line in a report: native modules, those that leave
+ * out part of a maintained Node line, and those that set the project's
+ * floor or ceiling. Listing all 800 packages of a lockfile would bury the
+ * few that decide the answer.
  */
 export function notablePackages(report: Report, today = new Date().toISOString().slice(0, 10)): PackageReport[] {
   const named = new Set(report.findings.flatMap((f) => f.packages ?? []));
-  const maintained = maintainedReleases(report, today);
+  const known = knownReleases(report);
+  const newestMajor = known[0]?.major ?? 0;
+  const maintained = known.filter((r) => (r.eol ? r.eol >= today : r.major >= newestMajor - 6));
+  // The releases just outside the supported set: whoever excludes them is
+  // why the set starts and ends where it does.
+  const edges: NodeRelease[] = [];
+  const fits = report.supported.releases();
+  const top = fits[0];
+  const bottom = fits[fits.length - 1];
+  if (top && bottom) {
+    const above = known[known.findIndex((r) => r.version === top.version) - 1];
+    const below = known[known.findIndex((r) => r.version === bottom.version) + 1];
+    if (above) edges.push(above);
+    if (below) edges.push(below);
+  }
   return report.packages
     .filter(
       (p) =>
         (p.native && p.native.kind !== "none") ||
         maintained.some((r) => !p.supported.has(r.version)) ||
+        edges.some((r) => !p.supported.has(r.version)) ||
         (named.has(p.name) && !p.direct),
     )
     .sort((a, b) => a.supported.size - b.supported.size || a.name.localeCompare(b.name));
 }
 
-/** Releases of lines still maintained; without end-of-life data, the six newest majors. */
-function maintainedReleases(report: Report, today: string): NodeRelease[] {
+/** Every release in the report's index, newest first. */
+function knownReleases(report: Report): NodeRelease[] {
   // A Report does not carry its index; the releases any package allows
   // stand in for it (a package without engines brings every one).
-  const known = report.packages.reduce<NodeVersionSet>((acc, p) => acc.union(p.enginesSet), report.supported);
-  const releases = known.releases();
-  const newest = releases[0]?.major ?? 0;
-  return releases.filter((r) => (r.eol ? r.eol >= today : r.major >= newest - 6));
+  return report.packages.reduce<NodeVersionSet>((acc, p) => acc.union(p.enginesSet), report.supported).releases();
 }
 
 export function fixText(fix: Fix): string {
