@@ -1,0 +1,13 @@
+{
+  "name": "mono",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "dependencies": {
+    "local": "file:./local"
+  },
+  "devDependencies": {
+    "left-pad": "1.3.0"
+  }
+}
