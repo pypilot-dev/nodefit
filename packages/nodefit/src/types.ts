@@ -41,6 +41,8 @@ export interface NodeRelease {
   lts: string | false;
   /** Release date, YYYY-MM-DD. */
   date: string;
+  /** End of life of this release's major line, YYYY-MM-DD, when known. */
+  eol?: string;
 }
 
 export interface NodeIndex {
@@ -195,6 +197,12 @@ export interface LockedPackage {
   hasInstallScript?: boolean;
   os?: string[];
   cpu?: string[];
+  /**
+   * What this package depends on, name → range (or resolved version), as the
+   * lockfile records it. Lets the analyzer trace a transitive package back to
+   * the direct dependency that pulls it in.
+   */
+  dependencies?: Record<string, string>;
 }
 
 export type LockfileKind = "npm" | "bun" | "pnpm" | "yarn-classic" | "yarn-berry";
