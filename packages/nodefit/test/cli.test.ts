@@ -30,7 +30,7 @@ describe("doctor text", () => {
     ]) {
       expect(text).toContain(line);
     }
-    expect(text).toMatch(/• better-sqlite3 12\.4\.1 +20, 22 +prebuilt \(downloaded by prebuild-install\)/);
+    expect(text).toMatch(/• better-sqlite3 12\.4\.1 +20, 22 +prebuilt \(downloaded at install\)/);
     expect(text).toMatch(/• rollup 4\.50\.0 +20\.19\.5\+, 21–24 +engines >=20\.19\.0 · via vite · dev/);
     // express fits every maintained line, so it is summarised, not listed.
     expect(text).not.toContain("• express");

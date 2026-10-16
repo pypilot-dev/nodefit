@@ -8,7 +8,9 @@ const KIND: Record<NativeKind, string> = {
   none: "",
   "platform-packages": "prebuilt (per-platform packages)",
   "bundled-prebuilds": "prebuilt (in the tarball)",
-  "prebuild-install": "prebuilt (downloaded by prebuild-install)",
+  // Also node-sass's and re2's own downloaders, so the label says what
+  // happens rather than naming one tool; the detail names the mechanism.
+  "prebuild-install": "prebuilt (downloaded at install)",
   "node-pre-gyp": "prebuilt (downloaded by node-pre-gyp)",
   "source-only": "compiles with node-gyp",
   unknown: "install script nodefit cannot classify",

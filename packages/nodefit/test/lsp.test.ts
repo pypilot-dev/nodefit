@@ -117,9 +117,7 @@ describe("status and Markdown", () => {
     expect(md).toStartWith("# nodefit doctor\n");
     expect(md).toContain("## Compatibility");
     expect(md).toContain("- **Recommended**: 22.21.1 (LTS Jod)");
-    expect(md).toContain(
-      "| better-sqlite3 12.4.1 | 20, 22 | prebuilt (downloaded by prebuild-install) · engines >=18 |",
-    );
+    expect(md).toContain("| better-sqlite3 12.4.1 | 20, 22 | prebuilt (downloaded at install) · engines >=18 |");
     expect(md).toContain("- **Error: Node 18.20 does not fit this project**");
     expect(md).toContain("  Fix: `fnm use 22`");
     expect(md).toContain("- **Dependencies**: 3 direct dependencies");
