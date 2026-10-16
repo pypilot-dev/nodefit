@@ -14,36 +14,46 @@ bcrypt, canvas…) the releases it ships a prebuilt binary for on your
 platform. nodefit intersects them, recommends a release, and when nothing
 fits, names the two packages that clash.
 
+A project with an old node-sass next to a current sharp, on Node 24:
+
+```json
+{
+  "dependencies": {
+    "node-sass": "4.14.1",
+    "sharp": "^0.35.0"
+  }
+}
+```
+
 ```console
 $ npx nodefit doctor
-nodefit doctor — /work/shop
-  platform         : linux-x64
-  package manager  : npm (package-lock.json, 412 packages)
+nodefit doctor — C:\work\legacy-app
+  platform         : win32-x64
+  package manager  : npm (no lockfile)
 
 ── Environment ─────────────────────────────────────────
-  node             : 18.20.4 (/usr/bin/node)
-  version managers : fnm
-  node releases    : newest 24.11.0 (network)
+  node             : 24.11.0 (C:\Program Files\nodejs\node.exe)
+  version managers : none found
+  node releases    : newest 26.12.0 (cache)
 
 ── Project ─────────────────────────────────────────────
-  name             : shop
-  dependencies     : 2 prod, 1 dev
-  node pins        : engines >=18
+  name             : legacy-app
+  dependencies     : 2 prod
+  node pins        : none
 
 ── Compatibility ───────────────────────────────────────
-  supported Node   : 20.19.5+, 22
-  recommended      : 22.21.1 (LTS Jod)
-    • better-sqlite3 12.4.1  20, 22  prebuilt (downloaded by prebuild-install) · engines >=18
-    • rollup 4.50.0          20.19.5+, 21–24  engines >=20.19.0 · via vite · dev
-    + 410 packages not listed (see --json)
+  supported Node   : none
+  recommended      : none
+    • sharp 0.35.5      20.9+, 21–26  prebuilt (per-platform packages) · engines >=20.9.0
+    • node-sass 4.14.1  8–14  prebuilt (downloaded at install) · engines >=0.10.0
 
 ── Findings ────────────────────────────────────────────
-  [ERROR] Node 18.20 does not fit this project
-          Node 18.20.4 is outside what better-sqlite3 12.4.1 (20, 22) and rollup 4.50.0 (20.19.5+, 21–24) support. Switch to Node 22, the newest LTS release that fits every dependency.
-          fix: fnm use 22
-  [WARN ] npm will compile better-sqlite3 with node-gyp on Node 18.20
-          better-sqlite3 12.4.1 has no prebuilt binary for Node 18.20 on linux-x64, so npm builds it from source, which needs Python and a C++ toolchain. Prebuilt binaries exist for Node 20, 22.
-          fix: fnm use 22
+  [ERROR] No Node release fits every dependency
+          node-sass 4.14.1 supports Node up to 14.21.3 (8–14) but sharp 0.35.5 needs at least Node 20.9.0 (20.9+, 21–26), so no single release satisfies both. Move one of them to a version that fits the other.
+  [WARN ] npm will compile node-sass with node-gyp on Node 24.11
+          node-sass 4.14.1 has no prebuilt binary for Node 24.11 on win32-x64, so npm builds it from source, which needs Python and a C++ toolchain (on Windows: Visual Studio Build Tools with the "Desktop development with C++" workload). Prebuilt binaries exist for Node 8–14.
+  [WARN ] node-sass 4.14.1 is deprecated
+          npm says: "Node Sass is no longer supported. Please use `sass` or `sass-embedded` instead."
 ```
 
 ## Install
@@ -84,6 +94,8 @@ Colours appear only on a terminal and never when `NO_COLOR` is set.
   else the newest release.
 - **When nothing fits**, nodefit names the package with the lowest ceiling
   and the one with the highest floor, with the releases each supports.
+- **Deprecated direct dependencies** are flagged with npm's deprecation
+  message, which usually names the replacement (node-sass → sass).
 
 Registry documents are cached for a day and Node's release list is cached
 too, so repeated runs are fast and `--offline` works from the cache.
