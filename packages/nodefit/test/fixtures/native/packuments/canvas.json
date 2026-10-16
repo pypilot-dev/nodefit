@@ -1,0 +1,25 @@
+{
+  "name": "canvas",
+  "dist-tags": {
+    "latest": "2.11.2"
+  },
+  "versions": {
+    "2.11.2": {
+      "name": "canvas",
+      "version": "2.11.2",
+      "engines": {
+        "node": ">=6"
+      },
+      "dependencies": {
+        "nan": "^2.17.0",
+        "simple-get": "^3.0.3",
+        "@mapbox/node-pre-gyp": "^1.0.0"
+      },
+      "hasInstallScript": true,
+      "dist": {
+        "tarball": "https://registry.npmjs.org/canvas/-/canvas-2.11.2.tgz",
+        "unpackedSize": 518375
+      }
+    }
+  }
+}

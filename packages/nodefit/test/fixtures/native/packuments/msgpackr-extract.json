@@ -1,0 +1,28 @@
+{
+  "name": "msgpackr-extract",
+  "dist-tags": {
+    "latest": "3.0.4"
+  },
+  "versions": {
+    "3.0.4": {
+      "name": "msgpackr-extract",
+      "version": "3.0.4",
+      "dependencies": {
+        "node-gyp-build-optional-packages": "5.2.2"
+      },
+      "optionalDependencies": {
+        "@msgpackr-extract/msgpackr-extract-darwin-arm64": "3.0.4",
+        "@msgpackr-extract/msgpackr-extract-darwin-x64": "3.0.4",
+        "@msgpackr-extract/msgpackr-extract-linux-arm": "3.0.4",
+        "@msgpackr-extract/msgpackr-extract-linux-arm64": "3.0.4",
+        "@msgpackr-extract/msgpackr-extract-linux-x64": "3.0.4",
+        "@msgpackr-extract/msgpackr-extract-win32-x64": "3.0.4"
+      },
+      "hasInstallScript": true,
+      "dist": {
+        "tarball": "https://registry.npmjs.org/msgpackr-extract/-/msgpackr-extract-3.0.4.tgz",
+        "unpackedSize": 15646
+      }
+    }
+  }
+}

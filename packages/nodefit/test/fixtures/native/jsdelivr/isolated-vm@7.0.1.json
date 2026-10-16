@@ -1,0 +1,107 @@
+{
+  "type": "npm",
+  "name": "isolated-vm",
+  "version": "7.0.1",
+  "files": [
+    {
+      "type": "directory",
+      "name": "native-example",
+      "files": [
+        {
+          "type": "file",
+          "name": "binding.gyp"
+        },
+        {
+          "type": "file",
+          "name": "package.json"
+        }
+      ]
+    },
+    {
+      "type": "directory",
+      "name": "prebuilds",
+      "files": [
+        {
+          "type": "directory",
+          "name": "win32-x64",
+          "files": [
+            {
+              "type": "file",
+              "name": "isolated-vm.abi137.node"
+            },
+            {
+              "type": "file",
+              "name": "isolated-vm.abi147.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "linux-x64",
+          "files": [
+            {
+              "type": "file",
+              "name": "isolated-vm.abi137.glibc.node"
+            },
+            {
+              "type": "file",
+              "name": "isolated-vm.abi137.musl.node"
+            },
+            {
+              "type": "file",
+              "name": "isolated-vm.abi147.glibc.node"
+            },
+            {
+              "type": "file",
+              "name": "isolated-vm.abi147.musl.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "linux-arm64",
+          "files": [
+            {
+              "type": "file",
+              "name": "isolated-vm.abi137.glibc.node"
+            },
+            {
+              "type": "file",
+              "name": "isolated-vm.abi137.musl.node"
+            },
+            {
+              "type": "file",
+              "name": "isolated-vm.abi147.glibc.node"
+            },
+            {
+              "type": "file",
+              "name": "isolated-vm.abi147.musl.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "darwin-arm64",
+          "files": [
+            {
+              "type": "file",
+              "name": "isolated-vm.abi137.node"
+            },
+            {
+              "type": "file",
+              "name": "isolated-vm.abi147.node"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "binding.gyp"
+    },
+    {
+      "type": "file",
+      "name": "package.json"
+    }
+  ]
+}

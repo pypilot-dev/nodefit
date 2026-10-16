@@ -1,0 +1,24 @@
+{
+  "name": "cpu-features",
+  "dist-tags": {
+    "latest": "0.0.10"
+  },
+  "versions": {
+    "0.0.10": {
+      "name": "cpu-features",
+      "version": "0.0.10",
+      "engines": {
+        "node": ">=10.0.0"
+      },
+      "dependencies": {
+        "buildcheck": "~0.0.6",
+        "nan": "^2.19.0"
+      },
+      "hasInstallScript": true,
+      "dist": {
+        "tarball": "https://registry.npmjs.org/cpu-features/-/cpu-features-0.0.10.tgz",
+        "unpackedSize": 576021
+      }
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "name": "bcrypt",
+  "dist-tags": {
+    "latest": "6.0.0"
+  },
+  "versions": {
+    "6.0.0": {
+      "name": "bcrypt",
+      "version": "6.0.0",
+      "engines": {
+        "node": ">= 18"
+      },
+      "dependencies": {
+        "node-addon-api": "^8.3.0",
+        "node-gyp-build": "^4.8.4"
+      },
+      "hasInstallScript": true,
+      "dist": {
+        "tarball": "https://registry.npmjs.org/bcrypt/-/bcrypt-6.0.0.tgz",
+        "unpackedSize": 1106749
+      }
+    },
+    "5.1.1": {
+      "name": "bcrypt",
+      "version": "5.1.1",
+      "engines": {
+        "node": ">= 10.0.0"
+      },
+      "dependencies": {
+        "node-addon-api": "^5.0.0",
+        "@mapbox/node-pre-gyp": "^1.0.11"
+      },
+      "hasInstallScript": true,
+      "dist": {
+        "tarball": "https://registry.npmjs.org/bcrypt/-/bcrypt-5.1.1.tgz",
+        "unpackedSize": 110858
+      }
+    }
+  }
+}

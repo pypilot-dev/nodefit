@@ -1,0 +1,23 @@
+{
+  "name": "isolated-vm",
+  "dist-tags": {
+    "latest": "7.0.1"
+  },
+  "versions": {
+    "7.0.1": {
+      "name": "isolated-vm",
+      "version": "7.0.1",
+      "engines": {
+        "node": ">=24.0.0"
+      },
+      "dependencies": {
+        "node-gyp-build": "^4.8.4"
+      },
+      "hasInstallScript": true,
+      "dist": {
+        "tarball": "https://registry.npmjs.org/isolated-vm/-/isolated-vm-7.0.1.tgz",
+        "unpackedSize": 20941263
+      }
+    }
+  }
+}

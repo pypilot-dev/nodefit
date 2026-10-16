@@ -1,0 +1,77 @@
+{
+  "type": "npm",
+  "name": "node-pty",
+  "version": "1.1.0",
+  "files": [
+    {
+      "type": "directory",
+      "name": "prebuilds",
+      "files": [
+        {
+          "type": "directory",
+          "name": "win32-x64",
+          "files": [
+            {
+              "type": "file",
+              "name": "conpty.node"
+            },
+            {
+              "type": "file",
+              "name": "conpty_console_list.node"
+            },
+            {
+              "type": "file",
+              "name": "pty.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "win32-arm64",
+          "files": [
+            {
+              "type": "file",
+              "name": "conpty.node"
+            },
+            {
+              "type": "file",
+              "name": "conpty_console_list.node"
+            },
+            {
+              "type": "file",
+              "name": "pty.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "darwin-x64",
+          "files": [
+            {
+              "type": "file",
+              "name": "pty.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "darwin-arm64",
+          "files": [
+            {
+              "type": "file",
+              "name": "pty.node"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "binding.gyp"
+    },
+    {
+      "type": "file",
+      "name": "package.json"
+    }
+  ]
+}

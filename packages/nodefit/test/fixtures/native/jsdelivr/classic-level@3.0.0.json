@@ -1,0 +1,109 @@
+{
+  "type": "npm",
+  "name": "classic-level",
+  "version": "3.0.0",
+  "files": [
+    {
+      "type": "directory",
+      "name": "prebuilds",
+      "files": [
+        {
+          "type": "directory",
+          "name": "win32-x64",
+          "files": [
+            {
+              "type": "file",
+              "name": "classic-level.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "win32-ia32",
+          "files": [
+            {
+              "type": "file",
+              "name": "classic-level.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "linux-x64",
+          "files": [
+            {
+              "type": "file",
+              "name": "classic-level.musl.node"
+            },
+            {
+              "type": "file",
+              "name": "classic-level.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "linux-arm64",
+          "files": [
+            {
+              "type": "file",
+              "name": "classic-level.armv8.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "linux-arm",
+          "files": [
+            {
+              "type": "file",
+              "name": "classic-level.armv6.node"
+            },
+            {
+              "type": "file",
+              "name": "classic-level.armv7.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "darwin-x64+arm64",
+          "files": [
+            {
+              "type": "file",
+              "name": "classic-level.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "android-arm64",
+          "files": [
+            {
+              "type": "file",
+              "name": "classic-level.armv8.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "android-arm",
+          "files": [
+            {
+              "type": "file",
+              "name": "classic-level.armv7.node"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "binding.gyp"
+    },
+    {
+      "type": "file",
+      "name": "package.json"
+    }
+  ]
+}

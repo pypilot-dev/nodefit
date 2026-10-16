@@ -1,0 +1,21 @@
+{
+  "name": "@esbuild/win32-x64",
+  "dist-tags": {
+    "latest": "0.28.2"
+  },
+  "versions": {
+    "0.28.2": {
+      "name": "@esbuild/win32-x64",
+      "version": "0.28.2",
+      "engines": {
+        "node": ">=18"
+      },
+      "os": ["win32"],
+      "cpu": ["x64"],
+      "dist": {
+        "tarball": "https://registry.npmjs.org/@esbuild/win32-x64/-/win32-x64-0.28.2.tgz",
+        "unpackedSize": 11695109
+      }
+    }
+  }
+}

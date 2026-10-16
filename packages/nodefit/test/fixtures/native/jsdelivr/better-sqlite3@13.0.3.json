@@ -1,0 +1,53 @@
+{
+  "type": "npm",
+  "name": "better-sqlite3",
+  "version": "13.0.3",
+  "files": [
+    {
+      "type": "directory",
+      "name": "prebuilds",
+      "files": [
+        {
+          "type": "file",
+          "name": "darwin-arm64.node"
+        },
+        {
+          "type": "file",
+          "name": "darwin-x64.node"
+        },
+        {
+          "type": "file",
+          "name": "linux-arm64.node"
+        },
+        {
+          "type": "file",
+          "name": "linux-x64.node"
+        },
+        {
+          "type": "file",
+          "name": "linuxmusl-arm64.node"
+        },
+        {
+          "type": "file",
+          "name": "linuxmusl-x64.node"
+        },
+        {
+          "type": "file",
+          "name": "win32-arm64.node"
+        },
+        {
+          "type": "file",
+          "name": "win32-x64.node"
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "binding.gyp"
+    },
+    {
+      "type": "file",
+      "name": "package.json"
+    }
+  ]
+}
