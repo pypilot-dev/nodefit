@@ -3,12 +3,13 @@
  */
 
 import { resolve } from "node:path";
-import type { NodePin, ProjectInfo } from "../types";
+import type { ProjectInfo } from "../types";
 import { findLockfile, managerFromSpec, readLockfile } from "./lockfile/index";
 import { directDependencies, expandWorkspaces, readManifest, tryReadManifest, workspacePatterns } from "./manifest";
 import { readPins } from "./pins";
 
 export { type ProbeOptions, probeNodeEnv, useCommand } from "./env";
+export { writePin } from "./write-pin";
 
 /**
  * Read package.json, the lockfile and every Node pin under `root`. Throws
@@ -46,14 +47,4 @@ export async function readProject(root: string): Promise<ProjectInfo> {
   if (lock) info.lockfile = { kind: lock.kind, path: lock.path };
   if (spec) info.packageManagerSpec = spec;
   return info;
-}
-
-/**
- * Record `version` as the project's Node: update the exact pin it already
- * uses (.nvmrc, .node-version, volta, .tool-versions, mise.toml), else
- * create .nvmrc. Never rewrites `engines` (a range other tools read).
- * Keeps the file's line endings and formatting.
- */
-export async function writePin(_project: ProjectInfo, _version: string): Promise<{ file: string; pin: NodePin }> {
-  throw new Error("not implemented");
 }
