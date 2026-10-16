@@ -7,7 +7,21 @@
  *   bun run build.ts
  */
 
-import { chmodSync, readFileSync, writeFileSync } from "node:fs";
+import { chmodSync, existsSync, readdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { join } from "node:path";
+
+// Chunk names carry content hashes, so chunks from earlier builds would pile
+// up in dist/ and be published. Remove files one by one: a recursive
+// directory delete is unreliable under Bun on Windows.
+function clear(dir: string): void {
+  if (!existsSync(dir)) return;
+  for (const entry of readdirSync(dir, { withFileTypes: true })) {
+    const path = join(dir, entry.name);
+    if (entry.isDirectory()) clear(path);
+    else rmSync(path, { force: true });
+  }
+}
+clear("./dist");
 
 const result = await Bun.build({
   entrypoints: ["./src/index.ts", "./src/cli.ts", "./src/lsp.ts"],
