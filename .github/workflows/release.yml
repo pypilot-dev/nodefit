@@ -1,0 +1,53 @@
+name: Release
+
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+  # Trusted publishing: npm checks this workflow's OIDC token, so no npm
+  # token is stored in the repository.
+  id-token: write
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+      - run: bun install --frozen-lockfile
+      - run: bun run typecheck
+      - run: bun run lint
+      - run: bun test
+
+      - name: Check the tag matches both package versions
+        run: |
+          tag="${GITHUB_REF_NAME#v}"
+          for p in packages/nodefit packages/vscode; do
+            v=$(node -p "require('./$p/package.json').version")
+            [ "$v" = "$tag" ] || { echo "$p is $v, tag is $tag"; exit 1; }
+          done
+
+      - name: Build the npm package
+        run: bun run build
+        working-directory: packages/nodefit
+
+      # Trusted publishing needs npm >= 11.5.1, which ships with Node 24.
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+          registry-url: "https://registry.npmjs.org"
+      - name: Publish to npm
+        run: npm publish --access public --provenance
+        working-directory: packages/nodefit
+
+      - name: Package the VS Code extension
+        run: bun run package
+        working-directory: packages/vscode
+
+      - name: Create the GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: packages/vscode/*.vsix
+          generate_release_notes: true

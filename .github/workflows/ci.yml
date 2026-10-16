@@ -1,0 +1,64 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  test:
+    name: test (${{ matrix.os }})
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        # Platform and libc detection, paths and version-manager lookups
+        # differ between these, so the suite runs on all three.
+        os: [ubuntu-latest, windows-latest, macos-latest]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+      - run: bun install --frozen-lockfile
+      - run: bun run typecheck
+      - run: bun run lint
+      - run: bun test
+      - run: bun run build
+
+  node-compat:
+    # Users run `npx nodefit` on whatever Node they have, often the old one
+    # they need help with, so the bundle must start on the oldest supported.
+    name: runs on Node ${{ matrix.node }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node: ["18", "20", "22", "24"]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+      - run: bun install --frozen-lockfile
+      - run: bun run build
+        working-directory: packages/nodefit
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+      - name: Smoke test the CLI
+        working-directory: packages/nodefit
+        run: |
+          node dist/cli.js --version
+          node dist/cli.js doctor --path . --offline || test $? -eq 1
+
+  vsix:
+    name: package the VS Code extension
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+      - run: bun install --frozen-lockfile
+      - run: bun run package
+        working-directory: packages/vscode
+      - uses: actions/upload-artifact@v4
+        with:
+          name: nodefit-vscode-vsix
+          path: packages/vscode/*.vsix
+          if-no-files-found: error
