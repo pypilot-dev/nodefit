@@ -353,6 +353,13 @@ describe("pins and the environment", () => {
     expect(f?.fix).toEqual({ kind: "pin-node", version: "24" });
   });
 
+  test("a pin that does not fit is not also offered as the Node to switch to", async () => {
+    // The shell runs a fitting Node; only the pin is wrong.
+    const r = await run({ project: pinned("16"), env: env("24.11.0") });
+    expect(finding(r, "pin-unsupported:.nvmrc")?.fix).toEqual({ kind: "pin-node", version: "24" });
+    expect(finding(r, "pin-mismatch:.nvmrc")).toBeUndefined();
+  });
+
   test("a shell on another major than the pin is a warning", async () => {
     const r = await run({ project: pinned("22"), env: env("20.19.5") });
     const f = finding(r, "pin-mismatch:.nvmrc");

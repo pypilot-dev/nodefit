@@ -177,6 +177,9 @@ function pinFindings(input: FindingInput, hooks: FindingHooks): Finding[] {
         packages: unique(blockers.flatMap(blame)),
         ...(recommended ? { fix: { kind: "pin-node", version: pinVersion(index, recommended) } as Fix } : {}),
       });
+      // Telling the user to switch to a pin that cannot run the project
+      // contradicts the fix above, which is to change the pin.
+      continue;
     }
 
     if (!mismatchReported && env.current && current && current.major !== wants.major) {
