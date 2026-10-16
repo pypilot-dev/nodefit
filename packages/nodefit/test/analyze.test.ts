@@ -179,6 +179,49 @@ describe("native modules", () => {
     expect(f?.fix).toMatchObject({ kind: "use-node", version: "22" });
   });
 
+  test("when nothing fits, a compile warning offers no Node to switch to", async () => {
+    // node-sass 4 has binaries for old Node only; sharp needs a newer one.
+    const r = await run({
+      project: project({
+        dependencies: [
+          { name: "node-sass", range: "4.14.1", kind: "prod" },
+          { name: "sharp", range: "*", kind: "prod" },
+        ],
+        lockfile: { kind: "npm", path: "/app/package-lock.json" },
+        locked: [
+          { name: "node-sass", version: "4.14.1", path: "node_modules/node-sass", hasInstallScript: true },
+          { name: "sharp", version: "0.35.5", path: "node_modules/sharp", engines: { node: ">=20.9.0" } },
+        ],
+      }),
+      env: env("24.11.0"),
+      verdicts: { "node-sass": prebuiltFor([93]) },
+    });
+    expect(r.supported.isEmpty()).toBe(true);
+    expect(ids(r)).toContain("conflict");
+    expect(finding(r, "compiles:node-sass")?.fix).toBeUndefined();
+  });
+
+  test("a deprecated direct dependency is a warning quoting npm", async () => {
+    const registry = new FixtureRegistry().add("node-sass", [
+      {
+        version: "4.14.1",
+        deprecated: "Node Sass is no longer supported. Please use `sass` or `sass-embedded` instead.",
+      },
+    ]);
+    const r = await run({
+      project: project({
+        dependencies: [{ name: "node-sass", range: "4.14.1", kind: "prod" }],
+        lockfile: { kind: "npm", path: "/app/package-lock.json" },
+        locked: [{ name: "node-sass", version: "4.14.1", path: "node_modules/node-sass" }],
+      }),
+      registry,
+    });
+    const f = finding(r, "deprecated:node-sass");
+    expect(f?.severity).toBe("warning");
+    expect(f?.detail).toContain("Please use `sass`");
+    expect(f?.packages).toEqual(["node-sass"]);
+  });
+
   test("a source-only package does not empty the set", async () => {
     const r = await run({
       project: lock([{ name: "bcrypt", version: "5.1.1", hasInstallScript: true }]),

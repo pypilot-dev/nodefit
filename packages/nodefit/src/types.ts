@@ -274,6 +274,8 @@ export interface PackageReport {
   native?: NativeVerdict;
   /** Releases on which it installs and runs here: engines ∩ prebuilt. */
   supported: NodeVersionSet;
+  /** npm's deprecation message for this version, for direct dependencies. */
+  deprecated?: string;
 }
 
 export type Severity = "error" | "warning" | "info";

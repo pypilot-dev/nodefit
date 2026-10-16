@@ -55,6 +55,7 @@ export function buildFindings(input: FindingInput, hooks: FindingHooks): Finding
     ...nodeFindings(input, hooks),
     ...pinFindings(input, hooks),
     ...nativeFindings(input, hooks),
+    ...deprecatedFindings(input),
     ...unresolvedFindings(input),
   ];
   // Stable: within a severity, the order above (most actionable first).
@@ -261,11 +262,30 @@ function nativeFindings(input: FindingInput, hooks: FindingHooks): Finding[] {
         title: `npm will compile ${p.name} with node-gyp on Node ${shown}`,
         detail: `${label(p)} has no prebuilt binary for Node ${shown} on ${here}, so npm builds it from source, which needs Python and a C++ toolchain ${toolchain(platform)}. Prebuilt binaries exist for Node ${p.supported}.`,
         packages: blame(p),
-        ...useFix(input, hooks, target),
+        // When nothing fits, the Node that suits this package breaks
+        // another one; the conflict finding says what to change instead.
+        ...(input.supported.isEmpty() ? {} : useFix(input, hooks, target)),
       });
     }
   }
   return out;
+}
+
+/**
+ * npm deprecates a release with a message that usually names the
+ * replacement ("use `sass` instead"), which is often the real way out of a
+ * Node conflict. Direct dependencies only: those are the user's to change.
+ */
+function deprecatedFindings({ packages }: FindingInput): Finding[] {
+  return packages
+    .filter((p) => p.direct && p.deprecated)
+    .map((p) => ({
+      id: `deprecated:${p.name}`,
+      severity: "warning" as const,
+      title: `${p.name} ${p.version} is deprecated`,
+      detail: `npm says: "${(p.deprecated as string).trim()}"`,
+      packages: [p.name],
+    }));
 }
 
 function unresolvedFindings({ unresolved, project }: FindingInput): Finding[] {

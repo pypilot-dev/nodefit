@@ -101,6 +101,7 @@ export async function analyzeWith(opts: AnalyzeOptions, hooks: FindingHooks): Pr
     if (!c.direct && via.has(c.name)) report.via = via.get(c.name);
     if (engines) report.engines = engines;
     if (native) report.native = native;
+    if (c.direct && c.meta.deprecated) report.deprecated = c.meta.deprecated;
     return report;
   });
 
@@ -168,8 +169,11 @@ async function fromLockfile(opts: AnalyzeOptions, unresolved: Unresolved[]): Pro
     const synthesized = metaFromLock(l, platformSpecific);
     const maybeNative = mayBeNative(synthesized) || Boolean(l.hasInstallScript);
     const unknown = l.engines === undefined || l.hasInstallScript === undefined;
+    const direct = l.path ? l.path === `node_modules/${l.name}` && directNames.has(l.name) : directNames.has(l.name);
     let meta = synthesized;
-    if (maybeNative || (!npmLock && unknown)) {
+    // Direct dependencies are few and the registry says whether npm has
+    // deprecated them, which no lockfile records.
+    if (maybeNative || direct || (!npmLock && unknown)) {
       try {
         const doc = await opts.registry.packument(l.name);
         const found = doc.versions[l.version];
@@ -187,7 +191,6 @@ async function fromLockfile(opts: AnalyzeOptions, unresolved: Unresolved[]): Pro
         }
       }
     }
-    const direct = l.path ? l.path === `node_modules/${l.name}` && directNames.has(l.name) : directNames.has(l.name);
     return { name: l.name, version: l.version, direct, dev: Boolean(l.dev), meta };
   });
   return out.filter((c): c is Candidate => c !== undefined);
