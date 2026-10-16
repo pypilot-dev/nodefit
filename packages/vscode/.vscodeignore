@@ -1,0 +1,10 @@
+# Everything the extension runs is bundled into out/*.js by build.ts; ship
+# only that, the docs and the icon.
+**
+!out/extension.js
+!out/server.js
+!package.json
+!README.md
+!CHANGELOG.md
+!LICENSE
+!media/icon.png
