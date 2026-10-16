@@ -1,0 +1,20 @@
+{
+  "name": "core-js",
+  "dist-tags": {
+    "latest": "3.50.0"
+  },
+  "versions": {
+    "3.50.0": {
+      "name": "core-js",
+      "version": "3.50.0",
+      "engines": {
+        "node": "*"
+      },
+      "hasInstallScript": true,
+      "dist": {
+        "tarball": "https://registry.npmjs.org/core-js/-/core-js-3.50.0.tgz",
+        "unpackedSize": 1360020
+      }
+    }
+  }
+}

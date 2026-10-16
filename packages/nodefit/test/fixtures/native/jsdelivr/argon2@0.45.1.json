@@ -1,0 +1,103 @@
+{
+  "type": "npm",
+  "name": "argon2",
+  "version": "0.45.1",
+  "files": [
+    {
+      "type": "directory",
+      "name": "prebuilds",
+      "files": [
+        {
+          "type": "directory",
+          "name": "win32-x64",
+          "files": [
+            {
+              "type": "file",
+              "name": "argon2.glibc.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "linux-x64",
+          "files": [
+            {
+              "type": "file",
+              "name": "argon2.glibc.node"
+            },
+            {
+              "type": "file",
+              "name": "argon2.musl.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "linux-arm64",
+          "files": [
+            {
+              "type": "file",
+              "name": "argon2.armv8.glibc.node"
+            },
+            {
+              "type": "file",
+              "name": "argon2.armv8.musl.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "linux-arm",
+          "files": [
+            {
+              "type": "file",
+              "name": "argon2.armv7.glibc.node"
+            },
+            {
+              "type": "file",
+              "name": "argon2.armv7.musl.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "freebsd-x64",
+          "files": [
+            {
+              "type": "file",
+              "name": "argon2.glibc.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "freebsd-arm64",
+          "files": [
+            {
+              "type": "file",
+              "name": "argon2.armv8.glibc.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "darwin-arm64",
+          "files": [
+            {
+              "type": "file",
+              "name": "argon2.armv8.glibc.node"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "binding.gyp"
+    },
+    {
+      "type": "file",
+      "name": "package.json"
+    }
+  ]
+}

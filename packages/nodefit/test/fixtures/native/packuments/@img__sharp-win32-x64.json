@@ -1,0 +1,21 @@
+{
+  "name": "@img/sharp-win32-x64",
+  "dist-tags": {
+    "latest": "0.35.5"
+  },
+  "versions": {
+    "0.35.5": {
+      "name": "@img/sharp-win32-x64",
+      "version": "0.35.5",
+      "engines": {
+        "node": ">=20.9.0"
+      },
+      "os": ["win32"],
+      "cpu": ["x64"],
+      "dist": {
+        "tarball": "https://registry.npmjs.org/@img/sharp-win32-x64/-/sharp-win32-x64-0.35.5.tgz",
+        "unpackedSize": 19812379
+      }
+    }
+  }
+}

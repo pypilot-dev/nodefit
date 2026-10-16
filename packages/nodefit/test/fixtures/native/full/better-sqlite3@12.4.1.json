@@ -1,0 +1,22 @@
+{
+  "name": "better-sqlite3",
+  "version": "12.4.1",
+  "engines": {
+    "node": "20.x || 22.x || 23.x || 24.x"
+  },
+  "dependencies": {
+    "bindings": "^1.5.0",
+    "prebuild-install": "^7.1.1"
+  },
+  "scripts": {
+    "install": "prebuild-install || node-gyp rebuild --release"
+  },
+  "repository": {
+    "url": "git://github.com/WiseLibs/better-sqlite3.git",
+    "type": "git"
+  },
+  "dist": {
+    "tarball": "https://registry.npmjs.org/better-sqlite3/-/better-sqlite3-12.4.1.tgz",
+    "unpackedSize": 10133375
+  }
+}

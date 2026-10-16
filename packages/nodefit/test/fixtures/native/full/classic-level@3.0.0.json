@@ -1,0 +1,25 @@
+{
+  "name": "classic-level",
+  "version": "3.0.0",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "napi-macros": "^2.2.2",
+    "module-error": "^1.0.1",
+    "abstract-level": "^3.1.0",
+    "node-gyp-build": "^4.3.0"
+  },
+  "scripts": {
+    "install": "node-gyp-build"
+  },
+  "gypfile": true,
+  "repository": {
+    "url": "git+https://github.com/Level/classic-level.git",
+    "type": "git"
+  },
+  "dist": {
+    "tarball": "https://registry.npmjs.org/classic-level/-/classic-level-3.0.0.tgz",
+    "unpackedSize": 5910797
+  }
+}

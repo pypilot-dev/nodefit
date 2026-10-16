@@ -1,0 +1,24 @@
+{
+  "name": "@img/sharp-linuxmusl-x64",
+  "dist-tags": {
+    "latest": "0.35.5"
+  },
+  "versions": {
+    "0.35.5": {
+      "name": "@img/sharp-linuxmusl-x64",
+      "version": "0.35.5",
+      "engines": {
+        "node": ">=20.9.0"
+      },
+      "optionalDependencies": {
+        "@img/sharp-libvips-linuxmusl-x64": "1.3.4"
+      },
+      "os": ["linux"],
+      "cpu": ["x64"],
+      "dist": {
+        "tarball": "https://registry.npmjs.org/@img/sharp-linuxmusl-x64/-/sharp-linuxmusl-x64-0.35.5.tgz",
+        "unpackedSize": 313375
+      }
+    }
+  }
+}

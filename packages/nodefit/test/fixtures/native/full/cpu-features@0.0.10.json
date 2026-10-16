@@ -1,0 +1,22 @@
+{
+  "name": "cpu-features",
+  "version": "0.0.10",
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "dependencies": {
+    "nan": "^2.19.0",
+    "buildcheck": "~0.0.6"
+  },
+  "scripts": {
+    "install": "node buildcheck.js > buildcheck.gypi && node-gyp rebuild"
+  },
+  "repository": {
+    "url": "git+https://github.com/mscdex/cpu-features.git",
+    "type": "git"
+  },
+  "dist": {
+    "tarball": "https://registry.npmjs.org/cpu-features/-/cpu-features-0.0.10.tgz",
+    "unpackedSize": 576021
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "name": "re2",
+  "version": "1.27.0",
+  "engines": {
+    "node": "^22.22.2 || ^24.15.0 || >=26.0.0"
+  },
+  "dependencies": {
+    "nan": "^2.29.0",
+    "node-gyp": "^13.0.2",
+    "install-artifact-from-github": "^1.8.1"
+  },
+  "scripts": {
+    "install": "install-from-cache --artifact build/Release/re2.node --host-var RE2_DOWNLOAD_MIRROR --skip-path-var RE2_DOWNLOAD_SKIP_PATH --skip-ver-var RE2_DOWNLOAD_SKIP_VER --force-build-var RE2_DOWNLOAD_FORCE_BUILD || node-gyp -j max rebuild"
+  },
+  "repository": {
+    "url": "git+https://github.com/uhop/node-re2.git",
+    "type": "git"
+  },
+  "dist": {
+    "tarball": "https://registry.npmjs.org/re2/-/re2-1.27.0.tgz",
+    "unpackedSize": 13330489
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "argon2",
+  "version": "0.45.1",
+  "engines": {
+    "node": ">=16.17.0"
+  },
+  "dependencies": {
+    "cross-env": "^10.1.0",
+    "@phc/format": "^1.0.0",
+    "node-addon-api": "^8.9.0",
+    "node-gyp-build": "^4.8.4"
+  },
+  "scripts": {
+    "install": "cross-env ZERO_AR_DATE=1 node-gyp-build"
+  },
+  "binary": {
+    "napi_versions": [8]
+  },
+  "repository": {
+    "url": "git+https://github.com/ranisalt/node-argon2.git",
+    "type": "git"
+  },
+  "dist": {
+    "tarball": "https://registry.npmjs.org/argon2/-/argon2-0.45.1.tgz",
+    "unpackedSize": 958794
+  }
+}

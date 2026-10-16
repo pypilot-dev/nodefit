@@ -1,0 +1,1001 @@
+{
+  "type": "npm",
+  "name": "deasync",
+  "version": "0.1.32",
+  "files": [
+    {
+      "type": "directory",
+      "name": "bin",
+      "files": [
+        {
+          "type": "directory",
+          "name": "darwin-arm64-node-22",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "darwin-arm64-node-24",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "darwin-arm64-node-26",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "darwin-x64-node-0.10",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "darwin-x64-node-0.11",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "darwin-x64-node-0.12",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "darwin-x64-node-4",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "darwin-x64-node-5",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "darwin-x64-node-6",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "darwin-x64-node-7",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "darwin-x64-node-8",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "darwin-x64-node-9",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "darwin-x64-node-10",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "darwin-x64-node-11",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "darwin-x64-node-12",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "darwin-x64-node-13",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "darwin-x64-node-14",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "darwin-x64-node-15",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "darwin-x64-node-16",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "darwin-x64-node-17",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "darwin-x64-node-18",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "darwin-x64-node-19",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "darwin-x64-node-20",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "darwin-x64-node-21",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "linux-ia32-node-0.10",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "linux-ia32-node-0.11",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "linux-ia32-node-0.12",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "linux-ia32-node-4",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "linux-ia32-node-5",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "linux-ia32-node-6",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "linux-ia32-node-7",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "linux-ia32-node-8",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "linux-ia32-node-9",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "linux-ia32-node-10",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "linux-x64-node-0.10",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "linux-x64-node-0.11",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "linux-x64-node-0.12",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "linux-x64-node-4",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "linux-x64-node-5",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "linux-x64-node-6",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "linux-x64-node-7",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "linux-x64-node-8",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "linux-x64-node-9",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "linux-x64-node-10",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "linux-x64-node-11",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "linux-x64-node-12",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "linux-x64-node-13",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "linux-x64-node-14",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "linux-x64-node-15",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "linux-x64-node-16",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "linux-x64-node-17",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "linux-x64-node-18",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "linux-x64-node-19",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "linux-x64-node-20",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "linux-x64-node-21",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "linux-x64-node-22",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "linux-x64-node-24",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "linux-x64-node-26",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "win32-ia32-node-0.10",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "win32-ia32-node-0.11",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "win32-ia32-node-0.12",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "win32-ia32-node-4",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "win32-ia32-node-5",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "win32-ia32-node-6",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "win32-ia32-node-7",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "win32-ia32-node-8",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "win32-ia32-node-9",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "win32-ia32-node-10",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "win32-ia32-node-11",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "win32-ia32-node-12",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "win32-ia32-node-13",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "win32-ia32-node-14",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "win32-ia32-node-15",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "win32-ia32-node-16",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "win32-x64-node-0.10",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "win32-x64-node-0.11",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "win32-x64-node-0.12",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "win32-x64-node-4",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "win32-x64-node-5",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "win32-x64-node-6",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "win32-x64-node-7",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "win32-x64-node-8",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "win32-x64-node-9",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "win32-x64-node-10",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "win32-x64-node-11",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "win32-x64-node-12",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "win32-x64-node-13",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "win32-x64-node-14",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "win32-x64-node-15",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "win32-x64-node-16",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "win32-x64-node-17",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "win32-x64-node-18",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "win32-x64-node-19",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "win32-x64-node-20",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "win32-x64-node-21",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "win32-x64-node-22",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "win32-x64-node-24",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        },
+        {
+          "type": "directory",
+          "name": "win32-x64-node-26",
+          "files": [
+            {
+              "type": "file",
+              "name": "deasync.node"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "file",
+      "name": "binding.gyp"
+    },
+    {
+      "type": "file",
+      "name": "package.json"
+    }
+  ]
+}

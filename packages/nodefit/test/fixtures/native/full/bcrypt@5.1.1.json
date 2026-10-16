@@ -1,0 +1,30 @@
+{
+  "name": "bcrypt",
+  "version": "5.1.1",
+  "engines": {
+    "node": ">= 10.0.0"
+  },
+  "dependencies": {
+    "node-addon-api": "^5.0.0",
+    "@mapbox/node-pre-gyp": "^1.0.11"
+  },
+  "scripts": {
+    "install": "node-pre-gyp install --fallback-to-build"
+  },
+  "binary": {
+    "host": "https://github.com",
+    "module_name": "bcrypt_lib",
+    "module_path": "./lib/binding/napi-v{napi_build_version}",
+    "remote_path": "kelektiv/node.bcrypt.js/releases/download/v{version}",
+    "package_name": "{module_name}-v{version}-napi-v{napi_build_version}-{platform}-{arch}-{libc}.tar.gz",
+    "napi_versions": [3]
+  },
+  "repository": {
+    "url": "git+https://github.com/kelektiv/node.bcrypt.js.git",
+    "type": "git"
+  },
+  "dist": {
+    "tarball": "https://registry.npmjs.org/bcrypt/-/bcrypt-5.1.1.tgz",
+    "unpackedSize": 110858
+  }
+}

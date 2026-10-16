@@ -1,0 +1,21 @@
+{
+  "name": "@esbuild/linux-x64",
+  "dist-tags": {
+    "latest": "0.28.2"
+  },
+  "versions": {
+    "0.28.2": {
+      "name": "@esbuild/linux-x64",
+      "version": "0.28.2",
+      "engines": {
+        "node": ">=18"
+      },
+      "os": ["linux"],
+      "cpu": ["x64"],
+      "dist": {
+        "tarball": "https://registry.npmjs.org/@esbuild/linux-x64/-/linux-x64-0.28.2.tgz",
+        "unpackedSize": 11428465
+      }
+    }
+  }
+}

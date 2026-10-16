@@ -1,0 +1,22 @@
+{
+  "name": "isolated-vm",
+  "version": "7.0.1",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "dependencies": {
+    "node-gyp-build": "^4.8.4"
+  },
+  "scripts": {
+    "install": "node-gyp-build 'node-gyp rebuild -j 4 --release -v' || node-gyp rebuild --release -j max"
+  },
+  "gypfile": true,
+  "repository": {
+    "url": "git+https://github.com/laverdet/isolated-vm.git",
+    "type": "git"
+  },
+  "dist": {
+    "tarball": "https://registry.npmjs.org/isolated-vm/-/isolated-vm-7.0.1.tgz",
+    "unpackedSize": 20941263
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "name": "better-sqlite3",
+  "dist-tags": {
+    "latest": "13.0.3"
+  },
+  "versions": {
+    "13.0.3": {
+      "name": "better-sqlite3",
+      "version": "13.0.3",
+      "engines": {
+        "node": ">=22"
+      },
+      "dependencies": {
+        "node-addon-api": "^8.0.0"
+      },
+      "dist": {
+        "tarball": "https://registry.npmjs.org/better-sqlite3/-/better-sqlite3-13.0.3.tgz",
+        "unpackedSize": 27302969
+      }
+    },
+    "12.4.1": {
+      "name": "better-sqlite3",
+      "version": "12.4.1",
+      "engines": {
+        "node": "20.x || 22.x || 23.x || 24.x"
+      },
+      "dependencies": {
+        "bindings": "^1.5.0",
+        "prebuild-install": "^7.1.1"
+      },
+      "hasInstallScript": true,
+      "dist": {
+        "tarball": "https://registry.npmjs.org/better-sqlite3/-/better-sqlite3-12.4.1.tgz",
+        "unpackedSize": 10133375
+      }
+    }
+  }
+}
