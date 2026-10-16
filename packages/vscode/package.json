@@ -14,10 +14,86 @@
   "engines": {
     "vscode": "^1.85.0"
   },
+  "activationEvents": [
+    "workspaceContains:package.json"
+  ],
   "main": "./out/extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "nodefit.showReport",
+        "title": "Show Report",
+        "category": "nodefit",
+        "icon": "$(preview)"
+      },
+      {
+        "command": "nodefit.checkPackage",
+        "title": "Check a Package…",
+        "category": "nodefit",
+        "icon": "$(checklist)"
+      },
+      {
+        "command": "nodefit.pinNode",
+        "title": "Pin Node Version…",
+        "category": "nodefit",
+        "icon": "$(pinned)"
+      },
+      {
+        "command": "nodefit.refresh",
+        "title": "Re-check the Project",
+        "category": "nodefit",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "nodefit.showOutput",
+        "title": "Show Output",
+        "category": "nodefit",
+        "icon": "$(output)"
+      }
+    ],
+    "configuration": {
+      "title": "nodefit",
+      "properties": {
+        "nodefit.notifications": {
+          "type": "string",
+          "enum": [
+            "problems-only",
+            "all",
+            "off"
+          ],
+          "enumDescriptions": [
+            "Notify about errors and warnings, once per session each.",
+            "Also say once when every dependency fits.",
+            "No notifications; the status bar and package.json diagnostics still show problems."
+          ],
+          "default": "problems-only",
+          "description": "When nodefit shows notifications after checking the project.",
+          "scope": "resource"
+        },
+        "nodefit.includeDevDependencies": {
+          "type": "boolean",
+          "default": true,
+          "description": "Include devDependencies (and what only they pull in) when working out which Node releases fit. Turn off when development tools run on a different Node than the app.",
+          "scope": "resource"
+        },
+        "nodefit.trace.server": {
+          "type": "string",
+          "enum": [
+            "off",
+            "messages",
+            "verbose"
+          ],
+          "default": "off",
+          "description": "Log the messages between VS Code and the nodefit language server to the nodefit output.",
+          "scope": "window"
+        }
+      }
+    }
+  },
   "scripts": {
     "typecheck": "tsc --noEmit -p .",
-    "build": "bun run build.ts"
+    "build": "bun run build.ts",
+    "watch": "bun run build.ts --watch"
   },
   "devDependencies": {
     "@types/bun": "1.4.3",
