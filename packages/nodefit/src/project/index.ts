@@ -3,25 +3,45 @@
  */
 
 import { resolve } from "node:path";
-import type { NodeEnvironment, NodePin, PackageManager, ProjectInfo } from "../types";
-import { directDependencies, expandWorkspaces, readManifest, workspacePatterns } from "./manifest";
+import type { NodeEnvironment, NodePin, ProjectInfo } from "../types";
+import { findLockfile, managerFromSpec, readLockfile } from "./lockfile/index";
+import { directDependencies, expandWorkspaces, readManifest, tryReadManifest, workspacePatterns } from "./manifest";
 import { readPins } from "./pins";
 
-/** Read package.json and every Node pin under `root`. Throws if there is no readable package.json. */
+/**
+ * Read package.json, the lockfile and every Node pin under `root`. Throws
+ * if there is no readable package.json, or the lockfile is corrupt. A
+ * binary bun.lockb is reported as the lockfile with no `locked` packages.
+ */
 export async function readProject(root: string): Promise<ProjectInfo> {
   const dir = resolve(root);
   const manifest = readManifest(dir);
+  const dependencies = directDependencies(manifest);
+  const workspaces = expandWorkspaces(dir, workspacePatterns(dir, manifest));
+
   const spec = typeof manifest.packageManager === "string" ? manifest.packageManager.trim() : undefined;
-  const declared = spec?.split("@")[0] ?? "";
+  const declared = managerFromSpec(spec);
+  const lock = findLockfile(dir, declared);
+  // Yarn lockfiles resolve the direct dependencies of every workspace by
+  // descriptor, so the graph needs all of them as roots.
+  const allDirect = [
+    ...dependencies,
+    ...workspaces.flatMap((ws) => {
+      const m = tryReadManifest(ws);
+      return m ? directDependencies(m) : [];
+    }),
+  ];
+
   const info: ProjectInfo = {
     root: dir,
-    dependencies: directDependencies(manifest),
-    locked: [],
+    dependencies,
+    locked: lock ? readLockfile(lock, allDirect) : [],
     pins: readPins(dir, manifest),
-    packageManager: ["npm", "bun", "pnpm", "yarn"].includes(declared) ? (declared as PackageManager) : "npm",
-    workspaces: expandWorkspaces(dir, workspacePatterns(dir, manifest)),
+    packageManager: declared ?? lock?.manager ?? "npm",
+    workspaces,
   };
   if (typeof manifest.name === "string") info.name = manifest.name;
+  if (lock) info.lockfile = { kind: lock.kind, path: lock.path };
   if (spec) info.packageManagerSpec = spec;
   return info;
 }

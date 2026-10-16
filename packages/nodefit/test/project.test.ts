@@ -97,6 +97,40 @@ describe("workspaces", () => {
   });
 });
 
+describe("package manager and lockfile choice", () => {
+  test("the packageManager field picks the lockfile", async () => {
+    const root = tree({
+      "package.json": json({ packageManager: "pnpm@9.12.0+sha512.abc" }),
+      "package-lock.json": json({ lockfileVersion: 3, packages: {} }),
+      "pnpm-lock.yaml": "lockfileVersion: '9.0'\n",
+    });
+    const project = await readProject(root);
+    expect(project.packageManager).toBe("pnpm");
+    expect(project.packageManagerSpec).toBe("pnpm@9.12.0+sha512.abc");
+    expect(project.lockfile).toEqual({ kind: "pnpm", path: join(root, "pnpm-lock.yaml") });
+  });
+
+  test("a declared manager without its lockfile still reports the one present", async () => {
+    const root = tree({
+      "package.json": json({ packageManager: "yarn@4.5.0" }),
+      "package-lock.json": json({ lockfileVersion: 3, packages: {} }),
+    });
+    const project = await readProject(root);
+    expect(project.packageManager).toBe("yarn");
+    expect(project.lockfile?.kind).toBe("npm");
+  });
+
+  test("without the field, lockfile presence decides; shrinkwrap beats package-lock", async () => {
+    const lock = json({ lockfileVersion: 3, packages: {} });
+    const npm = tree({ "package.json": "{}", "package-lock.json": lock, "npm-shrinkwrap.json": lock });
+    expect((await readProject(npm)).lockfile?.path).toBe(join(npm, "npm-shrinkwrap.json"));
+    const both = tree({ "package.json": "{}", "package-lock.json": lock, "yarn.lock": "# yarn lockfile v1\n" });
+    expect(await readProject(both)).toMatchObject({ packageManager: "yarn", lockfile: { kind: "yarn-classic" } });
+    const berry = tree({ "package.json": "{}", "yarn.lock": "__metadata:\n  version: 8\n" });
+    expect((await readProject(berry)).lockfile?.kind).toBe("yarn-berry");
+  });
+});
+
 describe("Node pins", () => {
   test("every pin file, with comments and whitespace stripped", async () => {
     const root = tree({
