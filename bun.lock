@@ -10,7 +10,7 @@
     },
     "packages/nodefit": {
       "name": "@pypilot-dev/nodefit",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "bin": {
         "nodefit": "dist/cli.js",
       },
@@ -28,7 +28,7 @@
     },
     "packages/vscode": {
       "name": "nodefit-vscode",
-      "version": "0.1.0",
+      "version": "0.1.1",
       "devDependencies": {
         "@pypilot-dev/nodefit": "workspace:*",
         "@types/bun": "1.4.3",

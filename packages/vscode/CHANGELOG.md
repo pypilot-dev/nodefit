@@ -1,8 +1,8 @@
 # Changelog
 
-## 0.1.0
+## 0.1.1
 
-First release.
+First release (0.1.0 was tagged but never published).
 
 - Bundles the nodefit language server; nothing else to install.
 - Diagnostics, hovers and quick fixes on `package.json` dependencies whose
