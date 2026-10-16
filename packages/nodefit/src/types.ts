@@ -144,7 +144,8 @@ export interface NativeVerdict {
   /**
    * Node releases with a prebuilt binary for the platform. `"all"` when the
    * binary does not depend on the Node version (N-API builds, or no native
-   * code). For "source-only", the releases node-gyp can build for (usually all).
+   * code). Empty for "source-only": nothing is prebuilt, so every install
+   * compiles; the analyzer must not let that empty the project's set.
    */
   prebuilt: NodeVersionSet | "all";
   /** True when a missing prebuilt binary makes the install compile from source. */
