@@ -5,7 +5,9 @@
  * implementation replaces the stubs.
  */
 
-import type { HttpClient, NodeIndex, NodeRelease, NodeVersionSet } from "../types";
+import type { HttpClient, NodeIndex, NodeRelease } from "../types";
+
+export { NodeSet } from "./set";
 
 export interface LoadIndexOptions {
   http?: HttpClient;
@@ -20,29 +22,6 @@ export interface LoadIndexOptions {
  */
 export async function loadNodeIndex(_opts: LoadIndexOptions = {}): Promise<NodeIndex> {
   throw new Error("not implemented");
-}
-
-/** Immutable set of releases drawn from one index. */
-export declare class NodeSet implements NodeVersionSet {
-  /** Every release in the index. */
-  static all(index: NodeIndex): NodeSet;
-  static empty(index: NodeIndex): NodeSet;
-  /** Releases satisfying a semver range, with npm's semantics (`engines.node`). Invalid ranges → all. */
-  static fromRange(index: NodeIndex, range: string): NodeSet;
-  /** Releases whose ABI (`process.versions.modules`) is in `abis`. */
-  static fromAbis(index: NodeIndex, abis: Iterable<number>): NodeSet;
-  /** Releases supporting at least N-API `version`. */
-  static fromNapi(index: NodeIndex, version: number): NodeSet;
-  static fromVersions(index: NodeIndex, versions: Iterable<string>): NodeSet;
-  readonly size: number;
-  isEmpty(): boolean;
-  has(version: string): boolean;
-  intersect(other: NodeVersionSet): NodeSet;
-  union(other: NodeVersionSet): NodeSet;
-  releases(): NodeRelease[];
-  newest(): NodeRelease | undefined;
-  newestLts(): NodeRelease | undefined;
-  toString(): string;
 }
 
 /** The release for a version string ("v22.11.0" or "22.11.0"), if in the index. */
