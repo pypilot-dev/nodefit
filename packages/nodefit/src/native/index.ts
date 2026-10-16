@@ -14,6 +14,7 @@ import { NodeSet } from "../node/set";
 import { platformLabel } from "../platform";
 import type { NativeContext, NativeVerdict, NodeVersionSet, VersionMeta } from "../types";
 import { NotFoundError } from "../types";
+import { VERSION } from "../version";
 import { defaultFetchBytes, type FetchBytes, listPackageFiles } from "./files";
 import { analyzePlatformPackages, platformPackageNames } from "./packages";
 import { compilerNeeds, installsOn } from "./platforms";
@@ -134,9 +135,20 @@ export async function analyzeNative(meta: VersionMeta, ctx: NativeContext): Prom
   return shared.analyze(meta, ctx);
 }
 
+/**
+ * Bump when detection changes in a way that alters verdicts within one
+ * nodefit version (between releases the version in the key does it).
+ */
+const RULES = 2;
+
+/**
+ * A verdict depends on the package, the platform, which Node lines exist,
+ * and how nodefit reads packages, so all four are in the key: an upgraded
+ * nodefit must not keep answers its older detection gave.
+ */
 function cacheKey(meta: VersionMeta, ctx: NativeContext): string {
   const newest = ctx.index.releases[0]?.version ?? "none";
-  return `native/${meta.name}@${meta.version}/${platformLabel(ctx.platform)}/node-${newest}`;
+  return `native/${meta.name}@${meta.version}/${platformLabel(ctx.platform)}/node-${newest}/nodefit-${VERSION}.${RULES}`;
 }
 
 function store(v: NativeVerdict): StoredVerdict {
