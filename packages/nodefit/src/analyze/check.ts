@@ -62,7 +62,11 @@ export async function checkPackage(
     return { ...base, reason, severity: "error", summary: `${capitalise(reason)}.`, findings: [] };
   }
 
-  const findings = report.findings.filter((f) => f.packages?.includes(name));
+  // The verdict already says whether it fits the current Node, compiles or
+  // has no binary; the one-package project's own findings (about "this
+  // project") would only repeat it in misleading terms.
+  const restated = /^(current-unsupported|compiles:|no-binary:|unresolved:|conflict)/;
+  const findings = report.findings.filter((f) => f.packages?.includes(name) && !restated.test(f.id));
   const suits = pkg.supported.newestLts() ?? pkg.supported.newest();
   const label = `${pkg.name} ${pkg.version}`;
   const mode = installMode(pkg.enginesSet, pkg.native);

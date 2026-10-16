@@ -107,7 +107,7 @@ export function formatCheck(outcome: CheckOutcome, c: Colors): string {
   out.push("");
   out.push(section("Verdict", c));
   out.push(`  ${outcome.severity === "ok" ? c.green(c.bold("✓")) : tag(outcome.severity, c)} ${outcome.summary}`);
-  const extra = outcome.findings.filter((f) => !outcome.summary.includes(f.title));
+  const extra = outcome.findings;
   if (extra.length) out.push("", ...findingLines(extra, c));
   return `${out.join("\n")}\n`;
 }

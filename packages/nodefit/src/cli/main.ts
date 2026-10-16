@@ -155,7 +155,9 @@ export async function main(argv: string[]): Promise<number> {
           return 1;
         }
         const { file } = await writePin(inputs.project, version);
-        out(`Pinned Node ${c.bold(version)} in ${c.cyan(relative(process.cwd(), file) || file)}\n`);
+        // Relative only when it is shorter to read: a file under this directory.
+        const near = relative(process.cwd(), file);
+        out(`Pinned Node ${c.bold(version)} in ${c.cyan(near && !near.startsWith("..") ? near : file)}\n`);
         const release = wanted ? releaseFor(inputs.index, wanted) : undefined;
         if (release && !report.supported.has(release.version)) {
           err(c.yellow(`warning: Node ${wanted} is outside what every dependency supports (${report.supported}).\n`));

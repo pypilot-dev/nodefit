@@ -85,7 +85,7 @@ export function checkToMarkdown(outcome: CheckOutcome): string {
   out.push(`${verdict} ${outcome.summary}`, "");
   if (p) out.push(...packageMarkdown(p), "");
   if (outcome.suits) out.push(`Suits: ${releaseLabel(outcome.suits)}`, "");
-  const extra = outcome.findings.filter((f) => !outcome.summary.includes(f.title));
+  const extra = outcome.findings;
   out.push(...findingsMarkdown(extra));
   return `${out.join("\n").trimEnd()}\n`;
 }
