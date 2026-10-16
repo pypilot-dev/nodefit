@@ -6,14 +6,33 @@
   "private": true,
   "license": "Apache-2.0",
   "publisher": "AbdullahMasood-005",
+  "author": "Abdullah Masood",
+  "icon": "media/icon.png",
   "repository": {
     "type": "git",
     "url": "https://github.com/pypilot-dev/nodefit",
     "directory": "packages/vscode"
   },
+  "bugs": {
+    "url": "https://github.com/pypilot-dev/nodefit/issues"
+  },
+  "homepage": "https://github.com/pypilot-dev/nodefit/tree/main/packages/vscode#readme",
   "engines": {
     "vscode": "^1.85.0"
   },
+  "categories": [
+    "Linters",
+    "Other"
+  ],
+  "keywords": [
+    "node",
+    "nvm",
+    "engines",
+    "node-gyp",
+    "native modules",
+    "prebuild",
+    "compatibility"
+  ],
   "activationEvents": [
     "workspaceContains:package.json"
   ],
@@ -93,7 +112,8 @@
   "scripts": {
     "typecheck": "tsc --noEmit -p .",
     "build": "bun run build.ts",
-    "watch": "bun run build.ts --watch"
+    "watch": "bun run build.ts --watch",
+    "package": "bun run build --production && bunx @vscode/vsce package --no-dependencies"
   },
   "devDependencies": {
     "@types/bun": "1.4.3",
