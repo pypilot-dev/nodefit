@@ -248,7 +248,8 @@ describe("native modules", () => {
       },
       hooks,
     );
-    expect(seen).toEqual(["esbuild"]);
+    // The binary package itself is screened too; the Linux one never is.
+    expect(seen.sort()).toEqual(["@esbuild/win32-x64", "esbuild"]);
     // npm never installs the Linux binary on Windows, so it cannot clash.
     expect(r.packages.map((p) => p.name).sort()).toEqual(["@esbuild/win32-x64", "esbuild"]);
   });
