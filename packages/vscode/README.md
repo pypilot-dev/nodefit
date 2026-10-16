@@ -85,5 +85,4 @@ npx @pypilot-dev/nodefit pin                 # pin the recommended Node
 
 ## License
 
-The extension is Apache-2.0; the `nodefit` engine it bundles is
-AGPL-3.0-or-later. Source: [pypilot-dev/nodefit](https://github.com/pypilot-dev/nodefit/tree/main/packages/vscode).
+AGPL-3.0-or-later, like the `nodefit` engine it bundles. Source: [pypilot-dev/nodefit](https://github.com/pypilot-dev/nodefit/tree/main/packages/vscode).

@@ -4,7 +4,7 @@
   "description": "Finds the Node.js version every dependency supports, and flags native modules with no prebuilt binary before node-gyp fails.",
   "version": "0.1.1",
   "private": true,
-  "license": "Apache-2.0",
+  "license": "AGPL-3.0-or-later",
   "publisher": "AbdullahMasood-005",
   "author": "Abdullah Masood",
   "icon": "media/icon.png",

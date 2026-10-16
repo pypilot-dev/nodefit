@@ -71,5 +71,5 @@ cd packages/vscode && bun run e2e   # the extension in a real VS Code
 
 ## License
 
-The `nodefit` package is AGPL-3.0-or-later; the VS Code extension is
-Apache-2.0.
+AGPL-3.0-or-later, for both the `nodefit` package and the VS Code
+extension, which bundles it.
