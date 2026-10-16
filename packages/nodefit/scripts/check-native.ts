@@ -91,6 +91,8 @@ for (const spec of specs) {
   const started = Date.now();
   const v = await analyzer.analyze(meta, { registry, index, platform, http });
   const prebuilt = v.prebuilt === "all" ? "all" : v.prebuilt.toString();
-  console.log(`${name}@${version}  [${v.kind}]  prebuilt=${prebuilt}  source=${v.fallsBackToSource}  (${Date.now() - started} ms)`);
+  console.log(
+    `${name}@${version}  [${v.kind}]  prebuilt=${prebuilt}  source=${v.fallsBackToSource}  (${Date.now() - started} ms)`,
+  );
   console.log(`  ${v.detail}\n`);
 }
