@@ -25,7 +25,7 @@ export function formatDoctor(report: Report, c: Colors, today?: string): string 
   const field = (name: string, value: string) => out.push(`  ${name.padEnd(17)}: ${value}`);
   const { env, project } = report;
 
-  out.push(`${c.bold(c.cyan("nodefit doctor"))} — ${report.root}`);
+  out.push(`${c.bold(c.cyan("nodefit doctor"))}: ${report.root}`);
   field("platform", platformLabel(report.platform));
   const lock = project.lockfile
     ? `${basename(project.lockfile.path)}, ${plural(project.locked.length, "package")}`
@@ -92,7 +92,7 @@ export function formatCheck(outcome: CheckOutcome, c: Colors): string {
   const out: string[] = [];
   const field = (name: string, value: string) => out.push(`  ${name.padEnd(17)}: ${value}`);
   const p = outcome.package;
-  out.push(`${c.bold(c.cyan("nodefit check"))} — ${p ? `${p.name} ${p.version}` : outcome.spec}`);
+  out.push(`${c.bold(c.cyan("nodefit check"))}: ${p ? `${p.name} ${p.version}` : outcome.spec}`);
   out.push(section("Package", c));
   field("requested", `${outcome.name}@${outcome.range}`);
   if (p) {

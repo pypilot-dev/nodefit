@@ -27,7 +27,7 @@ A project with an old node-sass next to a current sharp, on Node 24:
 
 ```console
 $ npx @pypilot-dev/nodefit doctor
-nodefit doctor — C:\work\legacy-app
+nodefit doctor: C:\work\legacy-app
   platform         : win32-x64
   package manager  : npm (no lockfile)
 

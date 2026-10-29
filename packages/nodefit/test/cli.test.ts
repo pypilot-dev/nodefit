@@ -13,7 +13,7 @@ describe("doctor text", () => {
   test("sections, the verdict and the packages that narrow the set", async () => {
     const text = formatDoctor(await sampleReport(), plain, "2026-10-16");
     for (const line of [
-      "nodefit doctor — /work/shop",
+      "nodefit doctor: /work/shop",
       "  platform         : linux-x64",
       "  package manager  : npm (package-lock.json, 4 packages)",
       "── Environment ──",
@@ -78,7 +78,7 @@ describe("check text", () => {
       hooks,
     );
     const text = formatCheck(outcome, plain);
-    expect(text).toContain("nodefit check — left-pad 1.3.0");
+    expect(text).toContain("nodefit check: left-pad 1.3.0");
     expect(text).toContain("  engines.node     : >=20");
     expect(text).toContain(
       '[ERROR] left-pad 1.3.0 does not support this project\'s Node 18.20 (its engines.node is ">=20").',
