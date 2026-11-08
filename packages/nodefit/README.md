@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="https://raw.githubusercontent.com/pypilot-dev/nodefit/main/assets/logo.png" width="128" height="128" alt="nodefit logo" />
+</p>
+
 # nodefit
 
 [![npm](https://img.shields.io/npm/v/@pypilot-dev/nodefit?color=blue&logo=npm)](https://www.npmjs.com/package/@pypilot-dev/nodefit)

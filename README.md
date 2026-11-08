@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/logo.png" width="128" height="128" alt="nodefit logo" />
+</p>
+
 # nodefit
 
 Finds the Node.js version every dependency of a project supports, and
